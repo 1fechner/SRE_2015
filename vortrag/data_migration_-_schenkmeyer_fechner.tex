@@ -1,0 +1,78 @@
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+% Nagigation Symbols off
+\usenavigationsymbolstemplate{}
+\setbeamercolor*{item}{fg=red}
+\setbeamercolor{itemize item}{fg=red} % all frames will have red bullets
+% Watermark
+\usebackgroundtemplate{%
+	\rule{0pt}{\paperheight}%
+	\hspace*{\paperwidth}%
+	\makebox[0pt][r]{\includegraphics[width=60mm]{\resWatermark}}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{latexsym}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{textpos}
+\usepackage[square,sort,comma,numbers]{natbib}
+
+\newcommand{\resLogo}{img/logo}
+\newcommand{\resWatermark}{img/watermark}
+
+\title{Data Migration}
+\subtitle{Untertitel}
+\author[Schenkmeyer, Fechner]{\includegraphics[height=1cm,width=3cm]{\resLogo}\\5Schenke, Tobias Fechner}
+\institute[UHH]{Universität Hamburg}
+\date{\today}
+
+% === DOCUMENT ===
+\begin{document}
+	
+	% === TITLE ===
+	\begin{frame}
+		\maketitle
+	\end{frame}
+	
+	\addtobeamertemplate{frametitle}{}{%
+		\begin{textblock*}{150mm}(.82\textwidth,-0.86cm)
+			\includegraphics[height=0.75cm,width=2.3cm]{\resLogo}
+		\end{textblock*}}
+		
+	% === AGENDA ===
+	
+	\begin{frame}
+		\frametitle{Agenda}
+		\tableofcontents
+	\end{frame}	
+	
+	% ===========================================================================================================
+	% ======= BEGIN CONTENT =====================================================================================
+	% ===========================================================================================================
+		
+	
+	
+	% ===========================================================================================================
+	% ======= END CONTENT =======================================================================================
+	% ===========================================================================================================
+	
+	% === QUELLEN ===
+	\section{Quellen}
+	
+	\begin{frame}[allowframebreaks]
+		\frametitle{Quellen}
+		
+		\bibliographystyle{alphadin}
+		\bibliography{../bib/mproj}
+	\end{frame}
+	
+\end{document}

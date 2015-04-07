@@ -1,0 +1,84 @@
+% !TeX spellcheck = de_DE
+\documentclass[11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{color}
+
+\newcommand{\ncite}{\footnote{Citation needed}}
+\newcommand{\lb}{\\ \\}
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{definition}[theorem]{Definition} 
+
+\newif\iffull
+\fulltrue
+
+\definecolor{mygray}{rgb}{0.95,0.95,0.95}
+\lstset{ %
+	backgroundcolor=\color{mygray}}
+
+\setlength{\parindent}{0em}
+
+\begin{document}
+	
+\iffull
+% === TITLE PAGE ===
+\title{Data Migration} 
+
+\subtitle{Untertitel}
+
+\author{5Schenke, Tobias Fechner\\
+	{\texttt{\{5Schenke,1fechner\}@informatik.uni-hamburg.de}}}
+\date{Modul Software Reengineering 2015/2016\\
+  \small Fachbereich Informatik\\ 
+  Arbeitsbereich Softwarekonstruktion \& Werkzeuge\\ 
+  Universit"at Hamburg\\[4mm]
+  \today}
+
+\maketitle
+
+% === ABSTRACT ===
+\begin{abstract}
+	\small\noindent\textbf{Abstract}
+
+	\noindent Abstract 
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\fi
+
+% ===========================================================================================================
+% ======= BEGIN CONTENT =====================================================================================
+% ===========================================================================================================
+
+%TODO Include Sections!
+
+%TODO Bilder - Nutzung in Software Architecture Lifecycle, Beispiel tool, Entscheidungsprozess fuer Asset aus Toolbox
+
+
+\section{Einleitung}
+
+\iffull
+% === BIB ===
+\newpage
+\bibliographystyle{alphadin}
+%\bibliographystyle{dinat}
+\addcontentsline{toc}{section}{\bibname}
+
+\bibliography{../bib/mproj}
+\fi
+\end{document}
