@@ -1,0 +1,28 @@
+Data Migration Strategies, Part 1 & 2 von SOUMENDRA MOHANTY
+http://www.information-management.com/specialreports/20040518/1003611-1.html
+http://www.information-management.com/specialreports/20040525/1003961-1.html
+
+Hauptseminar „Management von Softwaresystemen” zum Thema „Legacy Migrationsstrategien”
+http://www4.in.tum.de/lehre/seminare/hs/WS0506/mvs/files/Ausarbeitung_Erdle.pdf
+
+
+http://wikibon.org/wiki/v/Data_migration_strategies
+
+
+Entwicklung eines Softwarewerkzeugs für die modellgetriebene Migration betrieblicher Informationssysteme
+http://pi.informatik.uni-siegen.de/gi/stt/32_2/01_Fachgruppenberichte/OOSE_SWA/03_Gueldali-Sauer-Loehr-MMSM2012.pdf
+
+
+Legacy System Migration: A Legacy Data Migration Engine
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.391.2991&rep=rep1&type=pdf
+
+
+Successfull Datamigration (An Oracle Whitepaper)
+http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
+
+
+http://www.data-migrations.com
+
+
+Diplomarbeit: Ein Referenz-Prozessmodell ein Referenz-Prozessmodell zur Software-Migration
+http://www.uni-koblenz.de/ist/documents/ackermann2005da.pdf
