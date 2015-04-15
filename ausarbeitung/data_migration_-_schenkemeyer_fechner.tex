@@ -40,6 +40,7 @@
 
 \author{Julian Schenkemeyer, Tobias Fechner\\
 	{\texttt{\{5Schenke,1fechner\}@informatik.uni-hamburg.de}}}
+
 \date{Modul Software Reengineering 2015/2016\\
   \small Fachbereich Informatik\\ 
   Arbeitsbereich Softwarekonstruktion \& Werkzeuge\\ 
@@ -67,10 +68,70 @@
 
 %TODO Include Sections!
 
-%TODO Bilder - Nutzung in Software Architecture Lifecycle, Beispiel tool, Entscheidungsprozess fuer Asset aus Toolbox
-
-
 \section{Einleitung}
+
+\section{Motivation}
+
+Migration as a form of digital preservation
+
+Eventuell ein Beispiel, in dem Datenmigration notwendig ist?
+
+Stichworte Lifecycle-Management, Elektronische Archivierung, Langzeitarchivierung
+
+\section{Kategorien}
+
+Sieht als Quelle ganz gut aus: $\rightarrow$ \cite{wagner-2014}, \cite{morris-2012}
+
+\url{http://www.msg-systems.com/1939.0.html}
+
+\url{http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1173079&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1173079}
+
+\url{http://international.informatica.com/de/Images/7155_five-pitfalls_wp_de-DE.pdf}
+
+\url{http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1173079&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1173079}
+	
+\url{http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=957840&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D957840}
+	
+\url{http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf}
+
+\url{http://dc-pubs.dbs.uni-leipzig.de/files/Rahm2000DataCleaningProblemsand.pdf}
+
+''Data migration. Replace a legacy system, moving the data from the legacy application to the new application while preserving data integrity'' \url{http://softwarium.net/software-services/application-migration-reengineering}
+
+
+Aus \url{http://de.wikipedia.org/wiki/Migration_(Informationstechnik)} \\
+
+''Unter einer Datenmigration wird das Ersetzen einer Plattform verstanden, mit welcher Daten verwaltet und vom Altsystem übernommen werden. Bei der Plattform kann es sich dabei z. B. um physische Datenspeicher oder eine Datenbanksoftware handeln.
+
+Beispiele:
+
+Eine Bank ersetzt ein selbstentwickeltes System durch Standardsoftware. Es reicht nicht, nur die Standardsoftware zu installieren. Kundendaten, Konten und Kontostände müssen auch übernommen werden.
+Bei der Fusion von Unternehmen müssen die Daten beider Unternehmen zusammengeführt werden.
+
+\begin{itemize}
+	\item Die Konvertierung in eine andere Zeichenkodierung
+	\item Die Übertragung von Datenbanken
+	\item Die Übertragung von Textdokumenten, die Makros enthalten, auf ein anderes Office-Format
+	\item Die Übertragung von Tabellenkalkulationen, die eigene Formeln enthalten
+\end{itemize}
+
+
+Eine Datenmigration besteht aus drei Schritten. Im Extraktionsschritt wird gefiltert, welche Daten übernommen werden sollen. Kunden, die vor fünfzig Jahren gestorben sind, werden beispielsweise nicht übernommen. Als Zweites erfolgt eine Transformation. Die Daten liegen im Datenmodell des Altsystems vor. Sie müssen also transformiert werden, dass sie zum Datenmodell des Zielsystems „passen“. Im dritten und letzten Schritt werden die transformierten Daten ins Zielsystem geladen.
+
+Die drei Schritte entsprechen dem ETL-Prozess eines Data-Warehouse. Das Ziel ist aber ein anderes. Ein Data-Warehouse soll neue Erkenntnisse liefern, z. B. um die Entwicklung von Verkaufszahlen zu verstehen. Bei der Datenmigration hingegen bleiben die Daten semantisch unverändert. Alle (relevanten) Kunden sind weiterhin vorhanden. Die Kontostände sind ebenso unverändert. Einzig das Datenmodell kann sich ändern.
+
+Technisch realisiert werden kann eine Datenmigration beispielsweise mittels ETL-Tools, Spezial-Migrationstools mit SQL-Skripten. Zuverlässigkeit spielt eine wichtige Rolle (es sollen keine Konten „verloren“ gehen). Ebenso sind oft sehr viele Objekttypen zu migrieren (Kunden, Konten, Aktiendepots, Börsenplätze, Bilanzdaten etc.). Eine Ablaufsteuerung koordiniert den ETL-Prozess für die verschiedenen Objekttypen. Eine Migrationsverifikation betrachtet ausgewählten Testfällen beispielsweise manuell (pars pro toto) und verwendet zusätzlich Statistiken. Statistiken erlauben, eine „Nadel im Heuhaufen“ zu finden, also wenn beispielsweise ein einziges Konto von 10.000.000 zu migrierenden Konten fehlt.''
+
+\section{Sonstiges}
+
+\begin{itemize}
+	\item Data conversion
+	\item Data transformation
+\end{itemize}
+
+\section{Literatur}
+
+\section{Fazit}
 
 \iffull
 % === BIB ===
