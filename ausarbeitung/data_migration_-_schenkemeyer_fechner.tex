@@ -91,17 +91,10 @@
 	\item Etwa wichtige Kunden- oder Transaktionsdaten von Banken
 	\item Daten werden weiterhin verwendet, System m"ussen (technisch oder fachlich) erneuert werden
 	\item Die bereits vorhandenen Daten werden u.U. anders genutzt oder erfordern Anpassungen
+	\item Risiken der Datenmigration
 \end{itemize}
 
-\section{Methodiken}
-
-Jeweils:
-\begin{itemize}
-	\item Wessen Aufgabe ist die Migration?
-	\item Auswirkung auf umliegende Systeme (Folgen)?
-	\item Vorteile?
-	\item Nachteile?
-\end{itemize}
+\section{Arten von Datenmigration}
 
 \subsection{Storage Migration}
 
@@ -132,7 +125,61 @@ Jeweils:
 	\item Datenhaltung bildet von Business-Prozesse ab und muss entsprechend migriert werden
 \end{itemize}
 
-\section{Einf"uhrungsstrategien}
+\section{Planung und Durchführung}			%http://www.information-management.com/specialreports/20040518/1003611-1.html
+
+\begin{itemize}
+	\item Vorstellung der einzelnen Phasen der Datenmigration
+	\begin{itemize}
+		\item Data Assessment
+		\begin{itemize}
+			\item Welche Datenquellen existieren
+			\item Welche Daten müssen migriert werden
+			\item Wie wird migriert(Methode) und wie wird anschließend die Validation durchgeführt
+		\end{itemize}
+		
+		\item Data Cleansing
+		\begin{itemize}
+			\item Was wird nicht ben"otigt
+			\item Aufr"aumen der bestehenden Daten
+			\item "Uberpr"ufen der Datenqualität
+		\end{itemize}
+		
+		\item Test Extract \& Load
+		\begin{itemize}
+			\item Erstellen der notwendigen Skripte zur automatischen Durchf"uhrung der Datenmigeration 
+			\item Testlauf mit Teildatensatz
+		\end{itemize}
+		
+		\item Final Extract \& Load
+		\begin{itemize}
+			\item Durchf"uhrung der Datenmigration mit jeweiliger Vorgehensweise
+		\end{itemize}
+		
+		\item Migration Validation
+		\begin{itemize}
+			\item Abschließende "Uberpr"ufung der migrierten Daten
+			\item eventuelle Korrekturen
+		\end{itemize}
+		
+		\item Post Migration Activities
+		\begin{itemize}
+			\item Anpassung Dokumentation und Referenzen
+			\item Lernen fürs nächste Mal
+		\end{itemize}
+		
+	\end{itemize}
+\end{itemize}
+
+\section{Vorgehensweisen zur Datenmigration}		%http://www.information-management.com/specialreports/20040525/1003961-1.html
+							%http://edepositireland.ie/bitstream/handle/2262/27040/The%20Butterfly%20Methodology%20a%20gateway-free%20approach%20for%20migrating%20legacy%20information%20systems.pdf?sequence=1&isAllowed=y
+
+Jeweils:
+\begin{itemize}
+	\item Wessen Aufgabe ist die Migration?
+	\item Auswirkung auf umliegende Systeme (Folgen)?
+	\item Vorteile?
+	\item Nachteile?
+\end{itemize}
 
 \subsection{Big-Bang-Approach}
 
@@ -142,13 +189,19 @@ Jeweils:
 	\item Komplette Modell werden ausgetauscht
 \end{itemize}
 
-\subsection{Step-by-Step-Approach}
+\subsection{Phased-Approach}
 
 \begin{itemize}
 	\item Alte und neue Daten pflegen
 	\item Hohe Redundanzen
 	\item Alten Daten bleiben zun"achst erhalten
 	\item Oder auch: Nur Teile der Datenmodell/ Datenbanken werden migriert
+\end{itemize}
+
+\subsection{Butterfly-Approach}
+
+\begin{itemize}
+	\item 
 \end{itemize}
 
 \section{Fazit}
