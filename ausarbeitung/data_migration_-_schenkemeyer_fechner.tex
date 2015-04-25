@@ -21,22 +21,14 @@
 \newtheorem{theorem}{Theorem} 
 \newtheorem{definition}[theorem]{Definition} 
 
-\newif\iffull
-\fulltrue
-
-\definecolor{mygray}{rgb}{0.95,0.95,0.95}
-\lstset{ %
-	backgroundcolor=\color{mygray}}
-
 \setlength{\parindent}{0em}
 
 \begin{document}
 	
-\iffull
 % === TITLE PAGE ===
-\title{Data Migration} 
+\title{Ans"atze und Verfahren der Datenmigration}
 
-\subtitle{Untertitel}
+\subtitle{Datenmigration im Kontext des Reengineering} 
 
 %\author{Julian Schenkemeyer, Tobias Fechner\\
 %	{\texttt{\{5Schenke,1fechner\}@informatik.uni-hamburg.de}}}
@@ -60,190 +52,21 @@
 \tableofcontents
 \newpage
 
-\fi
-
 % ===========================================================================================================
 % ======= BEGIN CONTENT =====================================================================================
 % ===========================================================================================================
 
-%TODO Include Sections!
+\include{10_section_einleitung/10_einleitung}
+\include{20_section_motivation/20_motivation}
+\include{30_section_kategorien/30_kategorien}
+\include{40_section_projekt/40_projekt}
+\include{50_section_vorgehensweisen/50_vorgehensweisen}
+\include{90_section_fazit/90_fazit}
 
-\nocite{morris-2012}
-\nocite{henrard-2002}
-\nocite{behm-1997}
-\nocite{datamigrations}
-\nocite{ackermann-2005}
-\nocite{wagner-2011}
-\nocite{wu-1997}
-\nocite{rahm-2010}
-\nocite{alhajj-2001}
-
-\section{Einleitung}
-
-\begin{itemize}
-	\item Was ist Datenmigration
-	\item Es gibt verschiedene Ans"atze und Einf"uhrungsstrategien
-	\item Warum bei Reengineering
-\end{itemize}
-
-\section{Motivation}
-%http://www.dtic.upf.edu/~jbisbal/publications/icsc97.pdf
-%http://www.aifb.kit.edu/images/2/27/2002_14_Stojanovic_A_reverse_engin_1.pdf 	%Kann eventuell verwendet werden, als inspiration f"ur Szenario?
-%http://edepositireland.ie/bitstream/handle/2262/27040/The%20Butterfly%20Methodology%20a%20gateway-free%20approach%20for%20migrating%20legacy%20information%20systems.pdf?sequence=1&isAllowed=
-%http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
-%http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
-%http://www.tara.tcd.ie/bitstream/handle/2262/27050/An?sequence=1
-%http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
-%http://searchsmbstorage.techtarget.com/tip/Data-migration-strategies-and-best-practices
-%https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
-%http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
-%http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
-%http://www.tara.tcd.ie/bitstream/handle/2262/27050/An?sequence=1
-%http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=271615 ==> IEEE Xplore Data Migration von Cheong Youn, Cyril S. Ku
-%http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
-
-\begin{itemize}
-	\item Warum ist Datenmigration besonders wichtig bei Reengineering?
-	\item General Scenario
-	\item Ans"atze grob einf"uhren
-	\item Migration als Erhaltung von Daten
-	\item Etwa wichtige Kunden- oder Transaktionsdaten von Banken
-	\item Daten werden weiterhin verwendet, System m"ussen (technisch oder fachlich) erneuert werden
-	\item Die bereits vorhandenen Daten werden u.U. anders genutzt oder erfordern Anpassungen
-	\item Risiken der Datenmigration
-\end{itemize}
-
-\section{Kategorien Datenmigration}
-%https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
-
-Jeweils:
-\begin{itemize}
-	\item Wessen Aufgabe ist die Migration?
-	\item Auswirkung auf umliegende Systeme (Folgen)?
-	\item Vorteile?
-	\item Nachteile?
-\end{itemize}
-
-\subsection{Storage Migration}
-
-\begin{itemize}
-	\item Neue physische Hardware
-	\item Jemand kauft einen neuen Server -> unter Umst"anden neues Schreiben der Daten auf physischen Datentr"ager
-\end{itemize}
-
-\subsection{Database Migration}
-
-\begin{itemize}
-	\item Neue Version von DBMS etc.
-	\item Etwa Upgrade Oracle 7.0 -> 11.0: Unterschiedliche Verwaltung von Speicher und Administration
-\end{itemize}
-
-\subsection{Application Migration}
-
-\begin{itemize}
-	\item Neues DB-System etc. (Etwa Oracle -> MSSql)
-	\item Andere Formate, Statements, Zugriffe etc.
-\end{itemize}
-
-\subsection{Business Process Migration}
-
-\begin{itemize}
-	\item Anpassung von Daten an Business-Prozesse
-	\item Etwa Spaltung eines Unternehmens: Vorher alle Daten in einer DB, nach Spaltung geh"oren die Daten rechtlich entweder dem einen oder anderen Unternehmen und m"ussen entsprechend getrennt werden.
-	\item Datenhaltung bildet von Business-Prozesse ab und muss entsprechend migriert werden
-\end{itemize}
-
-\section{Planung und Durchführung}
-%http://www.information-management.com/specialreports/20040518/1003611-1.html
-%http://searchsmbstorage.techtarget.com/tip/Data-migration-strategies-and-best-practices
-%https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
-%http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
-%http://dc-pubs.dbs.uni-leipzig.de/files/Rahm2000DataCleaningProblemsand.pdf
-%http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
-%http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
-
-\begin{itemize}
-	\item Vorstellung der einzelnen Phasen der Datenmigration
-	\begin{itemize}
-		\item Data Assessment
-		\begin{itemize}
-			\item Welche Datenquellen existieren
-			\item Welche Daten müssen migriert werden
-			\item Wie wird migriert(Methode) und wie wird anschließend die Validation durchgeführt
-		\end{itemize}
-		
-		\item Data Cleansing
-		\begin{itemize}
-			\item Was wird nicht ben"otigt
-			\item Aufr"aumen der bestehenden Daten
-			\item "Uberpr"ufen der Datenqualität
-		\end{itemize}
-		
-		\item Test Extract \& Load
-		\begin{itemize}
-			\item Erstellen der notwendigen Skripte zur automatischen Durchf"uhrung der Datenmigeration 
-			\item Testlauf mit Teildatensatz
-		\end{itemize}
-		
-		\item Final Extract \& Load
-		\begin{itemize}
-			\item Durchf"uhrung der Datenmigration mit jeweiliger Vorgehensweise
-		\end{itemize}
-		
-		\item Migration Validation
-		\begin{itemize}
-			\item Abschließende "Uberpr"ufung der migrierten Daten
-			\item eventuelle Korrekturen
-		\end{itemize}
-		
-		\item Post Migration Activities
-		\begin{itemize}
-			\item Anpassung Dokumentation und Referenzen
-			\item Lernen fürs nächste Mal
-		\end{itemize}
-		
-	\end{itemize}
-\end{itemize}
-
-\section{Vorgehensweisen zur Datenmigration}
-%http://www.information-management.com/specialreports/20040525/1003961-1.html
-%http://edepositireland.ie/bitstream/handle/2262/27040/The%20Butterfly%20Methodology%20a%20gateway-free%20approach%20for%20migrating%20legacy%20information%20systems.pdf?sequence=1&isAllowed=y
-%http://www.dtic.upf.edu/~jbisbal/publications/icsc97.pdf
-%https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
-%http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
-%http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
-
-\subsection{Big-Bang-Approach}
-
-\begin{itemize}
-	\item Migration in einem Schritt
-	\item alte Datenbanken, Schemata, etc. wegwerfen
-	\item Komplette Modell werden ausgetauscht
-\end{itemize}
-
-\subsection{Phased-Approach}
-
-\begin{itemize}
-	\item Alte und neue Daten pflegen
-	\item Hohe Redundanzen
-	\item Alten Daten bleiben zun"achst erhalten
-	\item Oder auch: Nur Teile der Datenmodell/ Datenbanken werden migriert
-\end{itemize}
-
-\subsection{Butterfly-Approach}
-
-\begin{itemize}
-	\item Kein Gateway f"ur Daten"ubertragung
-\end{itemize}
-
-\section{Fazit}
-
-\iffull
 % === BIB ===
 \newpage
 \bibliographystyle{alphadin}
 \addcontentsline{toc}{section}{\bibname}
 
 \bibliography{../bib/mproj}
-\fi
 \end{document}
