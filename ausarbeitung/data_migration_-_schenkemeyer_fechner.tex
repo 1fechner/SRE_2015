@@ -8,7 +8,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsxtra}
-\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[square,authoryear]{natbib}
 \usepackage{listings}
 \usepackage{url}
 \usepackage{hyperref}
@@ -50,6 +50,9 @@
 
 \newpage
 \tableofcontents
+
+\listoffigures
+\listoftables
 \newpage
 
 % ===========================================================================================================
@@ -65,7 +68,8 @@
 
 % === BIB ===
 \newpage
-\bibliographystyle{alphadin}
+%\bibliographystyle{alphadin}
+\bibliographystyle{dinat}
 \addcontentsline{toc}{section}{\bibname}
 
 \bibliography{../bib/mproj}
