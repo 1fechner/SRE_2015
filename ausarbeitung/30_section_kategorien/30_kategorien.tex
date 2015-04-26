@@ -56,7 +56,7 @@ Die physische Migration eignet sich vor allem bei einem Wechsel der technischen 
 
 Anders als auf physischer Ebene werden Daten auf konzeptueller Ebene auch semantisch betrachtet. Schemata und Datenformate werden evaluiert und neu konzeptioniert. Aus der fachlichen Betrachtung der Daten ergeben sich unter Umst"anden umfangreiche "Anderungen an den Schnittstellen der System. Fachliche Konvertierung erfordern ein Umdenken. Dieses kann die Qualit"at der migrierten Daten verbessern.
 \lb
-Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenformaten eine semantische Analyse durch. Anhand der aus dieser gewonnenen Informationen wird eine Neukonzeptionierung der Modellierung vorgenommen. Abbildung \ref{pic:conversion_conceptual} zeigt das Vorgehen w"ahrend der konzeptuellen Migration. Das Quell-DMS Schema wird mithilfe eines Database Reengineering (BDRE) analysiert \citep{henrard-2002}. Ziel dieses Vorganges ist die Bereinigung (engl.: \textit{Cleansing}) vorhandener Daten \citep{rahm-2010} \citep{hernandez-1998}. Auf Basis einer neuen Konzeptualisierung des der Schemata wird die Konvertierung "ahnlich zur physischen Migration vorgenommen. Neue Formate werden in das Ziel-Format "ubertragen und kodiert. Die Konvertierung und Migration der eigentlichen Daten in die neue Umgebung erfolgt ebenfalls mithilfe von Konvertierungen. Diese ist, im Gegensatz zur physischen Konvertierung, umfangreicher. Neue Abbildungen und Modellierungen m"ussen aus vorhandenen Daten abgeleitet werden.
+Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenformaten eine semantische Analyse durch. Anhand der aus dieser gewonnenen Informationen wird eine Neukonzeptionierung der Modellierung vorgenommen. Abbildung \ref{pic:conversion_conceptual} zeigt das Vorgehen w"ahrend der konzeptuellen Migration. Das Quell-DMS Schema wird mithilfe eines Database Reengineering (BDRE) analysiert \citep{henrard-2002}. Ziel dieses Vorganges ist die Bereinigung (engl.: \textit{Cleansing}) vorhandener Daten \citep{rahm-2010} \citep{hernandez-1998}. Auf Basis einer neuen Konzeptualisierung des der Schemata wird die Konvertierung "ahnlich zur physischen Migration vorgenommen. Neue Formate werden in das Ziel-Format "ubertragen und kodiert. Die Konvertierung und Migration der eigentlichen Daten in die neue Umgebung erfolgt ebenfalls mithilfe von Konvertierungen. Diese ist, im Gegensatz zur physischen Konvertierung, umfangreicher. Neue Abbildungen und Modellierungen m"ussen aus vorhandenen Daten abgeleitet werden. In diesem Zusammenhang spielt auch das Reengineering der Anforderungen an die zugrundeliegenden Daten eine Rolle \citep{aiken-1994}.
 
 \begin{figure}[h!]
 	\centering
@@ -75,21 +75,44 @@ Der f"ur eine konzeptuelle Migration notwendige Aufwand ist vergleichsweise hoch
 Fazit %TODO
 
 % ==
-\subsection{Anwendungsebene}
+\subsection{Anwendungsebene} %TODO Needs more citations :P
 
-Sind Datenformate und Daten selbst konvertiert und migriert, m"ussen umgebende Softwaresysteme angepasst werden. Ver"anderte Datenformate beziehungsweise Technologien setzen oft einen ver"anderten Zugriff auf diese Daten voraus. Um den Aufwand f"ur "Anderung innerhalb der nutzenden Anwendungen m"oglichst zu reduzieren, existieren drei Strategien zu Anpassung von Anwendungen. Die zeichnen sich durch unterschiedliche Ebenen der Anpassung aus. Je nach Tiefe der Anpassung liegen ihnen unterschiedliche Ans"atze zugrunde. 
+Sind Datenformate und Daten selbst konvertiert und migriert, m"ussen umgebende Softwaresysteme angepasst werden. Ver"anderte Datenformate beziehungsweise Technologien setzen oft einen ver"anderten Zugriff auf diese Daten voraus. Um den Aufwand f"ur "Anderung innerhalb der nutzenden Anwendungen m"oglichst zu reduzieren, existieren drei Strategien der Anpassung von Anwendungen. Die zeichnen sich durch unterschiedliche Ebenen der Anpassung aus. Je nach Tiefe der Anpassung liegen ihnen unterschiedliche Ans"atze zugrunde. 
 
 % ===
 \subsubsection{Wrapper}
 
-%TODO Wrapper damit Anwendung auf die Daten wir zuvor zugreifen kann
-
+Um den Aufwand f"ur "Anderungen innerhalb von Softwaresystemen gering zu halten, bietet sich die Implementation eines Wrappers oder Adapters an. Dieser stellt eine Schnittstelle zwischen dem urspr"unglichen, unver"anderten Anwendungssystem und der neu strukturierten Datenquelle dar. Der Wrapper wird dabei als zus"atzliche Schicht zwischen beiden Komponenten eingef"ugt. Er nimmt Aufrufe der urspr"unglichen Anwendung entgegen, "ubersetzt sie in Anfragen an die neue Datenquelle und konvertiert die Ergebnisse der Anfrage f"ur das urspr"ungliche System. Er fungiert als Vermittler zwischen beiden Systemen und erspart so den Aufwand umfangreicher "Anderungen f"ur Abfragen im Anwendungssystem.
+%TODO Bild Schema?
+\lb
+Deutlicher Vorteil in der Verwendung eines Wrappers ist die notwendige geringe "Anderung des Anwendungssystems. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur sehr gering. Das Risiko wird dabei minimiert.
+\lb
+Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur die Implementation und Integration des Wrappers in die bestehende Systemlandschaft.
+Nachteile
+\lb
+Fazit 
+%TODO Gut, wenn viele redundante Aufrufe und Aufwand fuer Aenderungen hoch
 % ===
 \subsubsection{Statements}
 
 %TODO Anpassung der Statements zum Aufruf der Daten 
+Eine detailliertere Anpassung der Anwendungssysteme stellt das Anpassen der Aufrufe der Datenquelle dar. Der Zugriff auf Daten erfolgt durch entsprechende Anweisungen im Quellcode einer Anwendung. Die Anpassung entsprechender Statements im Quellcode nimmt dabei die Anpassung des Anwendungssystems vor. Anpassungen in entsprechenden Statements sind der Kern dieser Strategie. Es wird lediglich der tats"achliche Zugriff auf die Datenquelle ver"andert, nicht jedoch sein Struktur. Sind umfassende "Anderungen im Bezug auf die eingesetzte Technologie durchgef"uhrt worden, reicht eine blo"se Anpassung der Statements unter Umst"anden nicht aus.
+%TODO Bild Beispiel
+\lb
+Vorteil der Anpassung von Statements ist eine technisch saubere L"osung. Anpassungen an den Abfragen, etwa "Anderungen an SQL-Statements, sind eher simpel in der Durchf"uhrung. Die "Anderung der Statements erfordert nicht zwangsweise ein tiefgreifendes Verst"andnis des Anwendungssystems. 
+\lb
+Anpassungen an Statements reagieren auf eine Ver"anderte Schnittstelle der Datenquelle. Gr"o"sere strukturelle oder konzeptionelle "Anderungen k"onnen jedoch nicht ber"ucksichtigt werden.
+\lb
+Das Anpassen von Statements im Anwendungssystem ist sinnvoll, wenn an nur wenigen Stellen im Quellcode Anpassungen vorgenommen werden. Ist etwa der Zugriff auf die Datenquelle gekapselt, ist die Anpassung nur in geringem Umfang durchzuf"uhren. Im Gegensatz zum Einsatz eines Wrappers an der Schnittstelle, ist die "Anderung von Statements eine integrierte L"osung und greift in das Anwendungssystem ein. Um die Anpassung korrekt durchf"uhren zu k"onnen, ist ein grundlegendes Verst"andnis der betreffenden Anwendung notwendig.
 
 % ===
 \subsubsection{Logik}
 
-%TODO Anpassung der Art und Weise, wie Anwendung Daten und Schemate verwendet
+Um alle M"oglichkeiten neuer Datenquellen und -technologien nutzen zu k"onnen, muss unter Umst"anden die Logik des zugreifenden Anwendungssystemes ver"andert werden. Dabei werden Datenstrukturen, Algorithmen und Zugriff innerhalb der Software massiv ver"andert, um auf die neue Umgebung zu reagieren \citep{henrard-2002}.
+%TODO Bild Beispiel
+\lb
+Die Anpassung der Logik und damit potentiell die Nutzung aller M"oglichkeiten der neuen Datenquellen beziehungsweise Schnittstelle erh"oht den Nutzen der Anwendungssoftware. Kann das Softwaresystem von den neuen M"oglichkeiten Gebrauch machen, erh"oht dies m"oglicherweise den Gesch"aftswert der Komponente. 
+\lb
+Hinter der Anpassung der Logik eines Anwendungssystemes verbirgt sich immer ein gewisses Risiko. Je umfangreicher die "Anderungen ausfallen, desto h"oher ist das Risiko. Gerade funktionale "Anderungen, wie der Zugriff und die Arbeit mit Datenquellen, kann ein hohes Risiko beim Reengineering von Legacy-Systemen mit sich bringen.
+\lb
+Neben dem Einsatz von Wrappern und der Anpassung von Statements bildet die Anpassung der Logik die umfangreichste Strategie auf Anwendungsebene. Die Umsetzung erfordert umfassendes Verst"andnis der fachlichen Logik des betreffenden Softwaresystems. %TODO ??
