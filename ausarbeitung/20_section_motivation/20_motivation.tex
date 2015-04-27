@@ -34,21 +34,20 @@ Unterschiedliche Ans"atze der Datenmigration finden in spezifischen Kontexten An
 \lb
 Die Planung von Datenmigration stellt meist nur einen Teil des Reengineerings von Softwaresystemen dar. Innerhalb entsprechender Projekt folgt sinnvollerweise auch der Subprozess der Datenmigration entsprechenden Schemata.
 \lb
-Einf"uhrungsstrategien bildet konzeptionell den Abschluss der Datenmigration. Nach erfolgen Analysen, Tests und entsprechenden Anpassungen in den betroffenen Systemen kann die Einf"uhrung der "Anderungen mehreren Mustern folgen.
-\lb
+Einf"uhrungsstrategien bildet konzeptionell den Abschluss der Datenmigration. Nach erfolgen Analysen, Tests und entsprechenden Anpassungen in den betroffenen Systemen kann die Einf"uhrung der "Anderungen mehreren Mustern folgen. 
 
-\subsection{Definition Datenmigration}
+\subsection{Datenmigration}
+
+%TODO Quote muss weiter nach oben
+\begin{quote}''Data migration is the selection, perparation, extraction, transformation and permanent movement of appropriate data that is of the right quality to the right place at the right time and the decommissioning of legacy data stores'' \flushright\citep[S.~7]{morris-2012}
+\end{quote}
 
 Eine Strukturierung von Daten au"serhalb von Softwaresystemen bildet h"aufig den Kern wichtiger Gesch"aftsprozesse. Auf der zugrundeliegenden Dynamik externer Datenquellen skalieren die Aufgaben unterschiedlichster Softwaresysteme. Durch das Vorhalten von Daten in externen Quellen k"onnen Informationen zur Laufzeit der System dynamisch nachgeladen und persistiert werden.
 \lb
 Das Reengineering von Software beinhaltet meist nicht alleine eine Restrukturierung von Softwaresystemen. Zugrundeliegende Daten sind auf die Nutzung und den speziellen Kontext des Systems ausgelegt. Hohe Anforderungen an Stabilit"at und Verl"asslichkeit machen diese Daten zu einer zentralen Komponente von Legacy-Systemen.
 \lb
 Anders als eine Portierung von Software oder Systemen beruft sich die Datenmigration somit auf das verschieben und Restrukturieren von Daten.
-
-%TODO Quote muss weiter nach oben
-\begin{quote}''Data migration is the selection, perparation, extraction, transformation and permanent movement of appropriate data that is of the right quality to the right place at the right time and the decommissioning of legacy data stores'' \flushright\citep[S.~7]{morris-2012}
-\end{quote}
-
+\lb
 Aus ihrer zentralen Rolle innerhalb von Legacy-Systemen leitet sich ein hoher Gesch"aftswert der Daten ab. Beispiele finden sich etwa in Form von Daten der Kunden einer Bank, dem Katalog von Warenh"ausern oder einer Verwaltung von St"uckg"utern im Betrieb von Containerterminals. 
 \lb
 Datenmigration erfasst vorrangig Daten im Allgemeinen Sinne. Dies reicht von Datenbanken, Gesch"aftsdaten in Excel-Tabellen bis hin zu eigenen Datenformaten. Ziel der Migration ist vorrangig das Erhalten von Daten. Der Gesch"aftswert dieser Daten steht als zentrales Argument f"ur die Modernisierung von Datenhaltung und -management. Neben der physischen Migration von Daten, der Aktualisierung von Systemsoftware und letztendlich der Modernisierung der Modellierung der Daten reichen zahlreiche Ans"atze der Datenmigration. Die Integration der Migration erfordert eine Verzahnung mit Prozesses des Reengineering und der konstanten Nutzung von Legacy-Systemen.
@@ -59,6 +58,8 @@ Um die Kernaufgaben und den Kontext der Datenmigration zu erl"autern, l"asst sic
 \lb
 Kontext:
 Ein Versicherungsunternehmen; Ein in COBOL verfasstes Legacy-System sowie ein System zum Datenmanagement auf Basis ISAM\footnote{\textit{Indexed Sequential Access Method}}. Die Aufgabe des Systems ist das Erfassen und Verwalten von Versicherungen. Kunden- und Vertragsdaten sind Grundlage f"ur die Arbeit des Systems. Die Datenmodellierung orientiert sich an den Gesch"aftsprozessen. 
+\lb
+Im Zug einer Evolution des Unternehmens soll das Softwaresystem neu entwickelt werden. Um bestehende Gesch"aftsprozesse korrekt abzubilden, erfolgt eine umfassende Analyse. Auf Basis dieser Daten soll das neue System implementiert werden. Da sich das neu Anwendungssystem "ahnlich zum bestehenden System verhalten soll, m"ussen bereits vorhandene Kunden- und Versicherungsdaten "ubertragen werden. Zu diesem Zweck muss die vorhandene Datenhaltung an das neue System angepasst werden. Neue technische und konzeptionelle "Uberlegungen erfordern unter Umst"anden neue Denkweisen bei der Nutzung von vorhandenen Kundendaten. Die Datenmigration schlie"st in diesem Kontext die Konvertierung und den "Ubertrag vorhandener Daten in das neue System ein.
 
 \subsection{H"aufige Probleme}
 
