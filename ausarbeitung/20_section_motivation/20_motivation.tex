@@ -28,17 +28,17 @@
 %\end{itemize}
 %\subsection{Reengineering}
 
-Als zentrale Rolle des Reengineering von Software versteht sich eine ''Untersuchung (Reverse Engineering) und Änderung des Systems, um es in neuer Form zu implementieren'' \citep{chikofsky-1990}. In diesem Zusammenhand versucht auch die Datenmigration eben dieses Ziel zu erreichen. Gesch"aftskritische Daten bilden einen wichtigen Bestandteil vieler Softwaresysteme. Legacy-Systeme bauen h"aufig auf primitiven Mitteln zur Datenhaltung auf \citep{henrard-2002}.
+Als zentrale Rolle des Reengineering von Software versteht sich eine ''Untersuchung (Reverse Engineering) und Änderung des Systems, um es in neuer Form zu implementieren'' \citep{chikofsky-1990}. In diesem Zusammenhang versucht das Konzept der Datenmigration eben dieses Ziel im Hinblick auf bereits vorhandene Daten zu erreichen. Gesch"aftskritische Daten bilden einen wichtigen Bestandteil vieler Softwaresysteme. Legacy-Systeme bauen h"aufig auf primitiven Mitteln zur Datenhaltung auf \citep{henrard-2002}.
 \lb 
-Unterschiedliche Ans"atze der Datenmigration finden in spezifischen Kontexten Anwendung. Je nach Anwendungsgebiet der Migration existieren Techniken und Vorgehensweisen f"ur die Datenmigration. Diese unterscheiden sich in den einzusetzenden Hilfsmitteln, Beteiligen sowie Auswirkungen auf andere Systemteile.
+Unterschiedliche Ans"atze der Datenmigration finden in spezifischen Kontexten Anwendung. Je nach Anwendungsgebiet der Migration existieren Techniken und Vorgehensweisen f"ur die Datenmigration. Diese unterscheiden sich in den einzusetzenden Hilfsmitteln, Beteiligen sowie Auswirkungen auf andere Systemteile. Direkte Auswirkungen zeigen sich dabei in umliegenden Softwaresystemen, welche auf die Nutzung der Daten angewiesen sind.
 \lb
-Die Planung von Datenmigration stellt meist nur einen Teil des Reengineerings von Softwaresystemen dar. Innerhalb entsprechender Projekt folgt sinnvollerweise auch der Subprozess der Datenmigration entsprechenden Schemata.
+Die Planung von Datenmigration stellt meist nur einen Teil des Reengineerings von Softwaresystemen dar. Innerhalb entsprechender Projekt folgt sinnvollerweise auch der Subprozess der Datenmigration entsprechenden Schemata. %TODO Ergaenzen um Projekt-geschwafel
 \lb
 Einf"uhrungsstrategien bildet konzeptionell den Abschluss der Datenmigration. Nach erfolgen Analysen, Tests und entsprechenden Anpassungen in den betroffenen Systemen kann die Einf"uhrung der "Anderungen mehreren Mustern folgen. 
 
 \subsection{Datenmigration}
 
-%TODO Quote muss weiter nach oben
+%TODO Definition erl"autern??
 \begin{quote}''Data migration is the selection, perparation, extraction, transformation and permanent movement of appropriate data that is of the right quality to the right place at the right time and the decommissioning of legacy data stores'' \flushright\citep[S.~7]{morris-2012}
 \end{quote}
 
@@ -53,6 +53,7 @@ Aus ihrer zentralen Rolle innerhalb von Legacy-Systemen leitet sich ein hoher Ge
 Datenmigration erfasst vorrangig Daten im Allgemeinen Sinne. Dies reicht von Datenbanken, Gesch"aftsdaten in Excel-Tabellen bis hin zu eigenen Datenformaten. Ziel der Migration ist vorrangig das Erhalten von Daten. Der Gesch"aftswert dieser Daten steht als zentrales Argument f"ur die Modernisierung von Datenhaltung und -management. Neben der physischen Migration von Daten, der Aktualisierung von Systemsoftware und letztendlich der Modernisierung der Modellierung der Daten reichen zahlreiche Ans"atze der Datenmigration. Die Integration der Migration erfordert eine Verzahnung mit Prozesses des Reengineering und der konstanten Nutzung von Legacy-Systemen.
 
 \subsection{Szenario}
+%TODO Das ist ja furchtbar, vielleicht f"allt dir da was besseres ein?
 
 Um die Kernaufgaben und den Kontext der Datenmigration zu erl"autern, l"asst sich ein exemplarischer Anwendungsfall f"ur die Datenmigration im Kontext von Legacy-Systemen anf"uhren.
 \lb
@@ -76,4 +77,4 @@ Um die Relevanz von Datenmigration weiter hervorzuheben, erl"autert \citep{morri
 			Die Beziehungen zwischen (Migrations-)Projekt und allt"aglichem Gesch"afts sind selten eindeutig. Unkontrollierte Zuweisungen der Problem zu jeweils einem der Beteiligen kann unbeabsichtigt zur Rekursion bei der Zuweisung einzelner Problembereiche \citep[S.~9]{morris-2012}.
 \end{itemize}
 
-Hinweise f"ur die erfolgreiche Durchf"uhrung von Projekten zur Datenmigration finden sich etwa in \citep{sas-2009}, \citep{oracle-2011}.
+Hinweise f"ur die erfolgreiche Durchf"uhrung von Projekten zur Datenmigration finden sich etwa in \citep{sas-2009}, \citep{oracle-2011}. %TODO Etwas mehr...

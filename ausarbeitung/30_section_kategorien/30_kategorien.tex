@@ -2,7 +2,7 @@
 \section{Strategien zur Datenmigration}
 %TODO Tobias
 
-Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung. Unterschiedliche Ans"atze fokussieren dabei verschiedene Ebenen von Datenquellen und Anwendung. Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
+Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung. Unterschiedliche Ans"atze fokussieren dabei je die Ebenen Datenquellen und Anwendung. Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
 
 \subsection{Generelles Vorgehen}
 
@@ -83,15 +83,24 @@ Sind Datenformate und Daten selbst konvertiert und migriert, m"ussen umgebende S
 \subsubsection{Wrapper}
 
 Um den Aufwand f"ur "Anderungen innerhalb von Softwaresystemen gering zu halten, bietet sich die Implementation eines Wrappers oder Adapters an. Dieser stellt eine Schnittstelle zwischen dem urspr"unglichen, unver"anderten Anwendungssystem und der neu strukturierten Datenquelle dar. Der Wrapper wird dabei als zus"atzliche Schicht zwischen beiden Komponenten eingef"ugt. Er nimmt Aufrufe der urspr"unglichen Anwendung entgegen, "ubersetzt sie in Anfragen an die neue Datenquelle und konvertiert die Ergebnisse der Anfrage f"ur das urspr"ungliche System. Er fungiert als Vermittler zwischen beiden Systemen und erspart so den Aufwand umfangreicher "Anderungen f"ur Abfragen im Anwendungssystem.
-%TODO Bild Schema?
 \lb
+Abbildung \ref{pic:application_wrapper} zeigt das Schema zur Nutzung eines Wrappers. Die Abstraktion erfolgt dabei auf Basis von Prozeduren zum Aufruf der neuen Datenquelle durch den Wrapper. Vor der Einbindung des Wrappers m"ussen diese in die Legacy-Anwendung eingef"ugt werden. Nur so kann der sp"atere Aufruf des Wrappers anstatt der urspr"unglichen Datenquelle erfolgen \cite{henrard-2008}. 
+
+\begin{figure}[h!]
+	\centering
+	\caption{Einsatz eines Wrappers auf Anwendungsebene}
+	\label{pic:application_wrapper}
+	\includegraphics[width=0.5\textwidth]{../images/large_scale_fig_01.png} \\
+	\tiny Quelle: \citep{henrard-2008}, Abbildung 1
+\end{figure}
+
 Deutlicher Vorteil in der Verwendung eines Wrappers ist die notwendige geringe "Anderung des Anwendungssystems. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur sehr gering. Das Risiko wird dabei minimiert.
 \lb
 Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur die Implementation und Integration des Wrappers in die bestehende Systemlandschaft.
 Nachteile
 \lb
-Fazit 
-%TODO Gut, wenn viele redundante Aufrufe und Aufwand fuer Aenderungen hoch
+Erfolgt der Zugriff auf eine Datenquelle an vielen Stellen im Quellcode der Legacy-Anwendung, ist die Einf"uhrung eines Wrappers mit vergleichsweise wenig Aufwand verbunden. Anders als die Anpassung von Aufrufe oder der Ver"anderung der Programmlogik, reduziert sich die Einf"uhrung eines Wrappers auf das Austauschen der Aufrufe der Datenquelle. Verarbeitung und Nutzung der Datenquelle werden vom Wrapper wie in der urspr"unglichen Quelle bereitgestellt. Die relativ simple Anpassungen beim Einsatz eines Wrappers und ein sehr geringer Aufwand f"ur die Anpassung im Legacy-System selbst sind die Vorteil bei Nutzung eines Wrappers. Entgegen dem geringen Aufwand im System selbst, erfordert die Implementation eines Wrappers entsprechendes technische Verst"andnis sowohl der neuen als auch der alten Datenquelle. Dies garantiert die korrekte Nutzung der Daten durch die Legacy-Anwendung. Durch den bestehenden Umfang der Nutzung durch das Legacy-System k"onnen technische M"oglichkeiten der neuen Datenquelle unter Umst"anden nicht genutzt werden.
+
 % ===
 \subsubsection{Statements}
 
