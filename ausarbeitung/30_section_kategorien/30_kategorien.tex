@@ -94,6 +94,12 @@ Abbildung \ref{pic:application_wrapper} zeigt das Schema zur Nutzung eines Wrapp
 	\tiny Quelle: \citep{henrard-2008}, Abbildung 1
 \end{figure}
 
+Ein fiktives Legacy-System dient der Illustration. Zu seinen Aufgaben geh"ort der Zugriff auf Kundendaten. Diese werden im Legacy-System mit naiven Mitteln zur Datenhaltung verwaltet \citep{henrard-2002}. Beispiel \ref{code:wrapperbefore} zeigt den urspr"unglichen Aufruf der Datenquelle. Das nachfolgende Beispiel \ref{code:wrapperafter} illustriert den neuen Zugriff auf den Wrapper. Die Anpassung an dieser Schnittstelle ist gering \citep{henrard-2002}\footnote{Die Quellcode-Beispiele auf den folgenden Seiten sind aus \citep{henrard-2002} entnommen und dienen nur der Illustration}.
+
+\lstinputlisting[label=code:wrapperbefore,caption=Beispiel Legacy-Programm mit Aufruf der urspr"unglichen Datenquelle]{../src/wrapper_legacy.cbl}
+
+\lstinputlisting[label=code:wrapperafter,caption=Beispiel Legacy-Programm mit Aufruf der urspr"unglichen Datenquelle]{../src/wrapper_new.cbl}
+
 Deutlicher Vorteil in der Verwendung eines Wrappers ist die notwendige geringe "Anderung des Anwendungssystems. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur sehr gering. Das Risiko wird dabei minimiert.
 \lb
 Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur die Implementation und Integration des Wrappers in die bestehende Systemlandschaft.
@@ -104,10 +110,14 @@ Erfolgt der Zugriff auf eine Datenquelle an vielen Stellen im Quellcode der Lega
 % ===
 \subsubsection{Statements}
 
-%TODO Anpassung der Statements zum Aufruf der Daten 
 Eine detailliertere Anpassung der Anwendungssysteme stellt das Anpassen der Aufrufe der Datenquelle dar. Der Zugriff auf Daten erfolgt durch entsprechende Anweisungen im Quellcode einer Anwendung. Die Anpassung entsprechender Statements im Quellcode nimmt dabei die Anpassung des Anwendungssystems vor. Anpassungen in entsprechenden Statements sind der Kern dieser Strategie. Es wird lediglich der tats"achliche Zugriff auf die Datenquelle ver"andert, nicht jedoch sein Struktur. Sind umfassende "Anderungen im Bezug auf die eingesetzte Technologie durchgef"uhrt worden, reicht eine blo"se Anpassung der Statements unter Umst"anden nicht aus.
-%TODO Bild Beispiel
 \lb
+Beispiel \ref{code:statementbefore} zeigt den Aufruf der Datenquelle vor Anpassung der Statements. Die Anpassung in Beispiel \ref{code:statementeafter} verdeutlicht die Anpassung. Wo zuvor der Zugriff mit Sprachmitteln des Legacy-Systems erfolgte, sind Statements nach der Anpassung auf die Nutzung von SQL ausgelegt. Die entsprechenden Anpassungen sind umfangreicher als die Nutzung eines Wrappers.
+
+\lstinputlisting[label=code:statementbefore,caption=Aufruf der Datenquelle vor Anpassung der Statements]{../src/statementrewrite_cobol.cbl}
+
+\lstinputlisting[label=code:statementeafter,caption=Aufruf der neuen Datenquelle: Zugriff via SQL]{../src/statementrewrite_sql.cbl}
+
 Vorteil der Anpassung von Statements ist eine technisch saubere L"osung. Anpassungen an den Abfragen, etwa "Anderungen an SQL-Statements, sind eher simpel in der Durchf"uhrung. Die "Anderung der Statements erfordert nicht zwangsweise ein tiefgreifendes Verst"andnis des Anwendungssystems. 
 \lb
 Anpassungen an Statements reagieren auf eine Ver"anderte Schnittstelle der Datenquelle. Gr"o"sere strukturelle oder konzeptionelle "Anderungen k"onnen jedoch nicht ber"ucksichtigt werden.
@@ -118,10 +128,15 @@ Das Anpassen von Statements im Anwendungssystem ist sinnvoll, wenn an nur wenige
 \subsubsection{Logik}
 
 Um alle M"oglichkeiten neuer Datenquellen und -technologien nutzen zu k"onnen, muss unter Umst"anden die Logik des zugreifenden Anwendungssystemes ver"andert werden. Dabei werden Datenstrukturen, Algorithmen und Zugriff innerhalb der Software massiv ver"andert, um auf die neue Umgebung zu reagieren \citep{henrard-2002}.
-%TODO Bild Beispiel
 \lb
+F"ur eine Anpassung der Logik ist es erforderlich, entsprechende Passagen innerhalb der Anwendungssoftware an die neue Datenquelle anzupassen. Beispiel \ref{code:logicbefore} zeigt den urspr"unglichen Zugriff des Legacy-Systems. Die angepasst Logik ist in Beispiel \ref{code:logicafter} einzusehen. Als Unterschied zur reinen Anpassung der Statements sind die Auswirkungen auf andere Programmteile meist gr"o"ser \citep{henrard-2002}.
+
+\lstinputlisting[label=code:logicbefore,caption=Ursp"ungliche Logik f"ur den Zugriff auf die Datenquelle]{../src/logic_before.cbl}
+
+\lstinputlisting[label=code:logicafter,caption=Angepasste Zugriffslogik f"ur Datenquelle in SQL]{../src/logic_after.cbl}
+
 Die Anpassung der Logik und damit potentiell die Nutzung aller M"oglichkeiten der neuen Datenquellen beziehungsweise Schnittstelle erh"oht den Nutzen der Anwendungssoftware. Kann das Softwaresystem von den neuen M"oglichkeiten Gebrauch machen, erh"oht dies m"oglicherweise den Gesch"aftswert der Komponente. 
 \lb
 Hinter der Anpassung der Logik eines Anwendungssystemes verbirgt sich immer ein gewisses Risiko. Je umfangreicher die "Anderungen ausfallen, desto h"oher ist das Risiko. Gerade funktionale "Anderungen, wie der Zugriff und die Arbeit mit Datenquellen, kann ein hohes Risiko beim Reengineering von Legacy-Systemen mit sich bringen.
 \lb
-Neben dem Einsatz von Wrappern und der Anpassung von Statements bildet die Anpassung der Logik die umfangreichste Strategie auf Anwendungsebene. Die Umsetzung erfordert umfassendes Verst"andnis der fachlichen Logik des betreffenden Softwaresystems. %TODO ??
+Neben dem Einsatz eines Wrappers und der Anpassung von Statements bildet die Anpassung der Logik die umfangreichste Strategie auf Anwendungsebene. Die Umsetzung erfordert umfassendes Verst"andnis der fachlichen Logik des betreffenden Softwaresystems. Wie die bereits genannten Ans"atze stellt sich auch die Anpassung der Logik durch Vor- und Nachteile dar. Unterschiedliche Strategien und Ans"atze k"onnen die Migration auf unterschiedlichen Ebenen unterst"utzen. Welche Strategie einzusetzen ist, h"angt stark vom Kontext, dem bestehenden Legacy-System und dem technischen und fachlichen Wissen der Beteiligten eines Migrationsprojektes ab.
