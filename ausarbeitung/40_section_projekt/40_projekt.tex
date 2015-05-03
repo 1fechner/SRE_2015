@@ -1,53 +1,23 @@
 % !TeX spellcheck = de_DE
-\section{Planung und Durchführung}
+\section{Allgemeine Planungsrichtlinien}
 %TODO Julian
-%http://www.information-management.com/specialreports/20040518/1003611-1.html
-%http://searchsmbstorage.techtarget.com/tip/Data-migration-strategies-and-best-practices
-%https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
+%-http://www.information-management.com/specialreports/20040518/1003611-1.html
+%-http://searchsmbstorage.techtarget.com/tip/Data-migration-strategies-and-best-practices
+%-https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
 %http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
 %http://dc-pubs.dbs.uni-leipzig.de/files/Rahm2000DataCleaningProblemsand.pdf
 %http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
 %http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
 
-\begin{itemize}
-	\item Vorstellung der einzelnen Phasen der Datenmigration
-	\begin{itemize}
-		\item Data Assessment
-%		\begin{itemize}
-%			\item Welche Datenquellen existieren
-%			\item Welche Daten müssen migriert werden
-%			\item Wie wird migriert(Methode) und wie wird anschließend die Validation durchgeführt
-%		\end{itemize}
-		
-		\item Data Cleansing
-%		\begin{itemize}
-%			\item Was wird nicht ben"otigt
-%			\item Aufr"aumen der bestehenden Daten
-%			\item "Uberpr"ufen der Datenqualität
-%		\end{itemize}
-		
-		\item Test Extract \& Load
-%		\begin{itemize}
-%			\item Erstellen der notwendigen Skripte zur automatischen Durchf"uhrung der Datenmigeration 
-%			\item Testlauf mit Teildatensatz
-%		\end{itemize}
-		
-		\item Final Extract \& Load
-%		\begin{itemize}
-%			\item Durchf"uhrung der Datenmigration mit jeweiliger Vorgehensweise
-%		\end{itemize}
-		
-		\item Migration Validation
-%		\begin{itemize}
-%			\item Abschließende "Uberpr"ufung der migrierten Daten
-%			\item eventuelle Korrekturen
-%		\end{itemize}
-		
-		\item Post Migration Activities
-%		\begin{itemize}
-%			\item Anpassung Dokumentation und Referenzen
-%			\item Lernen fürs nächste Mal
-%		\end{itemize}
-		
-	\end{itemize}
-\end{itemize}
+Die Daten Migration stellt einen risikoreichen Aufgabenbereich dar. Aus diesem Grund sollte diese auch nicht ohne eine vorhergehende Planungsphase durchgeführt werden. Allerdings keine Standardvorgehensweise für diese Planungsphase.\cite[vgl.][S. 3]{wuLawless-1997} Stattdessen gibt es verschiedene Sammlungen von allgemeinen Richtlinien zur erfolgreichen Durchführung der Datenmigration. In folgendem werden ein paar dieser Richtlinie besprochen.
+
+\subsection{MILESTONE-Richtlinien}
+
+% Hier Grafik Übersicht MILESTONE
+
+Das MILESTONE-Projekt stellte eine Kollaboration des Trinity College Dublin, Broadcom Éireann Research, Telecom Éireann und Ericssons dar. Es begann 1996 und endete 1998. Im Zuge dieses Projektes sollten Migrations-Methoden und diese Methoden unterstützende Werkzeuge entwickelt werden.\cite[vgl.][S. 3]{wuLawless-1997} Unter anderen wurde im MILESTONE-Projekt auch die Butterfly-Vorgehensweise zur Datenmigration entwickelt, die in Kapitel 5 besprochen wird.\cite[vgl.][S. 3]{wuLawless-1997} 
+
+Im MILESTONE-Projekt unterteilt man den Migrationsprozess in fünf Aufgabenbereiche: Rechtfertigung(engl.: Justification), Verstehen des Legacy-Systems(engl.: Legacy System Understanding), Entwicklung des Zielsystems(engl.: Target System Development), Migration und Testen.\cite[vgl.][S. 3]{wuLawless-1997} 
+
+
+\subsection{4-Phasen-Modell von Haller, Matthes und Schulz}
