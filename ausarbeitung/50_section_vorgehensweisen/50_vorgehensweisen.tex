@@ -9,15 +9,19 @@
 %http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
 %http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
 
-\subsection{Big-Bang-Approach}
+%Quellen hinzufügen
 
-%\begin{itemize}
-%	\item Migration in einem Schritt
-%	\item alte Datenbanken, Schemata, etc. wegwerfen
-%	\item Komplette Modell werden ausgetauscht
-%\end{itemize}
+Das vom Unternehmen angewandte Prozessmodell beinhaltet auch die Wahl einer Vorgehensweise, die den technischen Ablauf der Datenmigration beschreibt. Da die gewählte Vorgehensweise den weiteren Ablauf im Prozessmodell beeinflusst, wird diese in einer frühen Phase nachdem die Kerndaten von Legacy- und dem neuen System analysiert wurden ausgewählt. Eine spätere Änderung dieser Entscheidung ist nicht oder nur sehr schwer möglich. Auch hier gilt das nicht Vorgehensweise sich für alle Unternehmen zur Datenmigration eignen. In diesen Kapitel werden aus diesem Grund drei dieser Vorgehensweisen mit ihren jeweiligen Vor- und Nachteil vorgestellt. 
 
-\subsection{Phased-Approach}
+\subsection{Big-Bang-Ansatz}
+
+Der Big-Bang oder auch als Cold Turkey bekannter Ansatz ist vermutlich der älteste Ansatz zur Datenmigration. Bei ihm handelt es sich um eine komplette Neuentwicklung des Legacy-Systems. Das neuentwickelte System bietet alle Funktionen des Legacy-Systems, basiert jedoch auf neuer Hardware sowie moderner Entwicklungsmethoden und Datenbanken.\citep[S. 105]{bisbal-1999}
+\lb
+Die Anforderungen, die das neuentwickelte System erfüllen muss, zunächst aus den verschiedenen Quellen zusammengetragen werden. Dazu gehören unteranderem die Dokumentation sowie der Programmcode des Legacy-Systems.\citep[S. 2]{brodie-1993} Zu Problemen kann es hier allerdings kommen wenn die Dokumentation veraltet ist und nicht mehr alle Funktionalitäten des Legacy-Systems beschreibt. Undokumentierte Funktionen und deren Abhängigkeiten müssen in diesem Fall dann direkt aus dem Anwendungen und dem Programmcode des Legacy-Systems abgeleitet werden.\citep[S. 2]{brodie-1993} 
+\lb
+Nach Abschluss der Entwicklung des neuen System und ausführlichem testen sämtlicher Funktionalitäten kann mit der Datenmigration begonnen werden. Beim Big-Bang-Ansatz sieht diese Datenmigration eine Pausierung sämtlicher vom Legacy-System gestützter Geschäftprozesse vor.\citep[S. 4]{wuLawless-1997} Während dieser Pausierung wird ein Dump des gesamten Datenbestands des Legacy-Systems angelegt. Dieser wird anschließend mittels der hierfür entwickelte Migrationsskripte in das neue System übertragen.
+
+\subsection{Chicken-Little Approach}
 
 %\begin{itemize}
 %	\item Alte und neue Daten pflegen
@@ -32,4 +36,3 @@
 %	\item Kein Gateway f"ur Daten"ubertragung
 %\end{itemize}
 
-\subsection{Chicken-Little Approach}
