@@ -25,14 +25,16 @@ Die Vorteile diese Ansatzes beschränken sich auf das verbesserte Programmverst�
 \lb
 Zusammenfassend bietet der Big-Bang-Ansatz auf der einen Seite eine unkomplizierte Datenmigration. Auf der anderen Seite jedoch stehen ein hohes Versagensrisiko sowie eine durch die eine Ausfallzeit während des Übergängs zum neuen System in dem im Unternehmen gar nicht und nur sehr eingeschränkt weitergearbeitet werden kann. Der Big-Bang-Ansatz kann somit nicht in jeden Unternehmen, sondern nur in einige wenigen eingesetzt werden. 
 
-\subsection{Chicken-Little Approach}
+\subsection{Chicken-Little-Ansatz}
 
-%\begin{itemize}
-%	\item Alte und neue Daten pflegen
-%	\item Hohe Redundanzen
-%	\item Alten Daten bleiben zun"achst erhalten
-%	\item Oder auch: Nur Teile der Datenmodell/ Datenbanken werden migriert
-%\end{itemize}
+Der Chicken-Little-Ansatz stellt eine weitere Vorgehensweise zur Datenmigration dar. Entwickelt wurde dieser Ansatz von Michaell Brodie und Michael Stonebraker im Rahmen des 1991 begonnenen DARWIN-Projekts der University of California in Berkeley.\citep{zoulafy-2002} Der Chicken-Little-Ansatz stellt im Gegensatz zum Big-Bang-Ansatz ein inkrementelles Vorgehen zur Datenmigration dar. Durch das inkrementelle Vorgehen sollte Schwächen des Big-Bang-Ansatz beseitigt werden. So können bei Chicken-Little beispielsweise Ausfallzeiten der von Legacy- bzw. neuen System unterstüzten Geschäftsprozesse während der Datenmigration vermieden oder zumindest minimal gehalten werden.\citep{zoulafy-2002}
+\lb
+Das inkrementelle Vorgehen ermöglicht hierbei, dass das Legacy-System nicht komplett aufeinmal sondern in kleineren Modulen neu entwickelt werden kann. So beginnt das neue System zunächst mit nur wenigen Funktionalitäten des Legacy-System. Mit der Zeit werden dann immer weiter Funktionalitäten des Legacy-System auf das neue System übertragen.\citep[S. 2]{wuLawless-1997} 
+\lb
+Um auch während der Datenmigration die Weiterarbeit zu ermöglichen kommt beim Chicken-Little-Ansatz ein sogenanntes Gateway zum Einsatz. Dieses Gateway verbindet Legacy- und das neue System miteinander und managt deren Kommunikation untereinander. Somit können das Neue und das Legacy-System solange parallel ausgeführt werden bis das neue System alle Daten enthalt und alle Funktionalitäten übernehmen kann\citep[S. 2]{wuLawless-1997} Die neuen Daten, die während der Zeit entstehen in der das neue System noch nicht alle Funktionen übernommen hat, werden dabei auf dem für die Funktion zuständigen System gespeichert. Folglich werden Daten, die durch bereits ans neue System übertragene Funktionen erstellt worden sind auch dort gespeichert und nicht mehr auf dem Legacy-System.\citep[S. 2]{wuLawless-1997} 
+\lb
+Das Gateway erfüllt nun zwei Aufgaben dem Übertragen der Daten an das neue System. Zum einen ist dies das Bereitstellen der noch nicht migrierten Daten an das neue System und zum Anderen das Bereitstellen der bereits migrierten Daten an das Legacy-System. Ersteres wird auch als rückwärts Gateway(engl.: reverse Gateway) und letzteres als vorwärts Gateway(engl.: forward Gateway) bezeichnet.\citep[S. 2]{wuLawless-1997} Je nachdem wie stark die Datenbankschemata vom Legacy- und neuen System sich unterscheiden stellen vorwärts und rückwärts Gateway unterschiedlich komplexe Module dar.  Mit steigender Komplexität dieser Module sinkt allerdings auch die Performanz des System während dieser Migrationphase.\citep[S. 109]{bisbal-1999}
+\lb
 
 \subsection{Butterfly-Approach}
 
