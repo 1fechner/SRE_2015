@@ -3,24 +3,12 @@
 \label{chapter:strategien}
 %TODO Tobias
 
-Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung. Diese Ans"atze fokussieren dabei je die Ebenen Datenquellen und Anwendung. Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
-
-\subsection{Generelles Vorgehen}
-
-Unabh"angig von der gew"ahlten Strategie setzt die Durchf"uhrung einer Datenmigration drei grunds"atzliche T"atigkeiten voraus \citep{henrard-2002}. Diese dienen als Ger"ust der Umsetzung einer Migration. 
-
-\begin{itemize}
-	\item \textbf{Konvertierung der Datenhaltungs-Schemata} \\
-	Erkennen und Analysieren von vorhandenen Schemata und Datenformaten. Auf Basis der existierenden Datenformate wird unter Umst"anden eine Neukonzeptionierung der Formate vorgenommen. Anpassungen m"ussen die Erhaltung der bereits vorhandenen Daten ber"ucksichtigen und neue Schemata auf Basis der Ziel-Technologie etablieren.
-	\item \textbf{Konvertierung der Daten} \\
-	Ist die Konvertierung der Schemata erfolgt, m"ussen die Daten selbst in das neue Format gebracht werden. Eine Automatisierung durch Umkopieren der Daten vom Alten in das neue Format verk"orpert die Konvertierung.
-	\item \textbf{Anpassung der Anwendung} \\
-	Sind Daten und Schemata konvertiert, m"ussen angrenzende Softwaresysteme angepasst werden. Anwendungen, welche alte Datenformate und -technologien nutzen, m"ussen auf die Nutzung der neuen Formate hin angepasst werden. Wird eine Neuentwicklung der Anwendung vorgenommen, kann dieser bereits unter Verwendung der neuen Technologien und Schemata konzeptioniert werden.
-\end{itemize}
-
-Migrationen erfolgen prinzipiell auf zwei Ebenen \citep{henrard-2002}. Datenbanken und -quellen bilden die grundlegende Ebene. Schemata der Datenhaltung m"ussen angepasst und konvertiert werden. Vorliegende Daten werden analysiert. Die zugrundeliegenden Strukturen werden "uberarbeitet oder angepasst. Sie werden in einigen F"allen auf andere Technologien "ubertragen. Sind Schemata angepasst, m"ussen vorhandene Daten "ubertragen und, sofern erforderlich, in neue Formate konvertiert werden.
+Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung. Diese Ans"atze fokussieren dabei je die Ebenen Datenquellen und Anwendung\citep{henrard-2002}. Datenbanken und -quellen bilden die grundlegende Ebene. Schemata der Datenhaltung m"ussen angepasst und konvertiert werden. 
 \lb
-In Folge der Migration der Daten selbst m"ussen umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert werden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden. 
+Auf Ebene der Anwendung m"ussen in Folge der Migration der Daten umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert werden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden.
+\lb
+Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
+
 
 % == 
 \subsection{Datenbankebene}
