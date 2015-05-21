@@ -5,7 +5,7 @@
 
 Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung. Diese Ans"atze fokussieren dabei je die Ebenen Datenquellen und Anwendung\citep{henrard-2002}. Datenbanken und -quellen bilden die grundlegende Ebene. Schemata der Datenhaltung m"ussen angepasst und konvertiert werden. 
 \lb
-Auf Ebene der Anwendung m"ussen in Folge der Migration der Daten umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert werden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden.
+Auf Ebene der Anwendung m"ussen in Folge der Migration der Daten umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert wurden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden.
 \lb
 Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
 
@@ -45,7 +45,7 @@ Die rein physische Migration eignet sich vor allem bei einem Wechsel der technis
 
 Anders als auf physischer Ebene werden Daten auf konzeptueller Ebene auch semantisch betrachtet. Schemata und Datenformate werden evaluiert und neu konzeptioniert. Aus der fachlichen Betrachtung der Daten ergeben sich unter Umst"anden umfangreiche "Anderungen an den Schnittstellen der Systeme. Fachliche Konvertierungen erfordern ein Umdenken. Dieses kann die fachliche Qualit"at der migrierten Daten verbessern.
 \lb
-Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenformaten eine semantische Analyse durch. Anhand der aus dieser gewonnenen Informationen wird eine Neukonzeptionierung der Modellierung vorgenommen. Abbildung \ref{pic:conversion_conceptual} zeigt das Vorgehen w"ahrend der konzeptuellen Migration. Das Quell-DMS Schema wird mithilfe eines Database Reengineering (DBRE) analysiert \citep{henrard-2002}. Ziel dieses Vorganges ist die Bereinigung (engl.: \textit{Cleansing}) vorhandener Daten \citep{rahm-2010} \citep{hernandez-1998}. Auf Basis einer neuen Konzeptualisierung der Schemata wird die Konvertierung "ahnlich zur physischen Migration vorgenommen. Neue Formate werden in das Ziel-Format "ubertragen und kodiert. Die Konvertierung und Migration der eigentlichen Daten in die neue Umgebung erfolgt ebenfalls mithilfe von Konvertierungen. Diese ist, im Gegensatz zur physischen Konvertierung, umfangreicher. Neue Abbildungen und Modellierungen m"ussen aus vorhandenen Daten abgeleitet werden. In diesem Zusammenhang spielt auch das Reengineering der Anforderungen an die zugrundeliegenden Daten eine Rolle \citep{aiken-1994}.
+Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenformaten eine semantische Analyse durch. Anhand der aus dieser gewonnenen Informationen wird eine Neukonzeptionierung der Modellierung vorgenommen. Abbildung \ref{pic:conversion_conceptual} zeigt das Vorgehen w"ahrend der konzeptuellen Migration. Das Quell-DMS Schema wird mithilfe eines Database Reengineering (DBRE) analysiert \citep{henrard-2002}. Ziel dieses Vorganges ist die Bereinigung vorhandener Daten \citep{rahm-2010} \citep{hernandez-1998}. Auf Basis einer neuen Konzeptualisierung der Schemata wird die Konvertierung "ahnlich zur physischen Migration vorgenommen. Neue Formate werden in das Ziel-Format "ubertragen und kodiert. Die Konvertierung und Migration der eigentlichen Daten in die neue Umgebung erfolgt ebenfalls mithilfe von Konvertierungen. Diese ist, im Gegensatz zur physischen Konvertierung, umfangreicher. Neue Abbildungen und Modellierungen m"ussen aus vorhandenen Daten abgeleitet werden. In diesem Zusammenhang spielt auch das Reengineering der Anforderungen an die zugrundeliegenden Daten eine Rolle \citep{aiken-1994}.
 
 \begin{figure}[h!]
 	\centering
@@ -57,7 +57,7 @@ Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenfo
 
 Auf konzeptueller Ebene spielt die fachliche Betrachtung vorhandener Daten eine wichtige Rolle. Das Verfahren ist nicht zwangsweise trivial. Analysen und konzeptuelle Konvertierung ben"otigen dabei ein gewisses Verst"andnis der Semantik entsprechender Daten.
 \lb
-Eine konzeptuelle Migration von Daten sorgt vor allem f"ur ein saubere Portierung vorhandener Daten. Schemata werden semantisch korrekt an neue Umgebungen und Formate angepasst. Eine potentielle S"auberung der Daten verringert unter Umst"anden Redundanzen oder nicht ben"otigte Datens"atze und -formate.
+Eine konzeptuelle Migration von Daten sorgt vor allem f"ur eine saubere Portierung vorhandener Daten. Schemata werden semantisch korrekt an neue Umgebungen und Formate angepasst. Eine potentielle S"auberung der Daten verringert unter Umst"anden Redundanzen oder nicht ben"otigte Datens"atze und -formate.
 \lb
 Der f"ur eine konzeptuelle Migration notwendige Aufwand ist vergleichsweise hoch. Ben"otigte Spezialisten und erforderliches fachliches Verst"andnis von Daten und Umgebung sorgen eventuell f"ur hohe Kosten.
 
@@ -87,7 +87,7 @@ Ein fiktives Legacy-System dient der Illustration. Zu seinen Aufgaben geh"ort de
 
 \lstinputlisting[label=code:wrapperafter,caption=Beispiel Legacy-Programm mit Aufruf der neuen Datenquelle]{../src/wrapper_new.cbl}
 
-Deutlicher Vorteil in der Verwendung eines Wrappers ist die notwendige geringe "Anderung des Anwendungssystems. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur minimal. Das Risiko wird dabei reduziert \citep{henrard-2002}. 
+Deutlicher Vorteil in der Verwendung eines Wrappers ist, dass die "Anderung des Anwendungssystems sehr gering ausf"allt. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur minimal. Das Risiko wird dabei reduziert \citep{henrard-2002}. 
 \lb
 Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur eben diese Implementation und Integration des Wrappers in die bestehende Systemlandschaft. Die Einf"uhrung eines Wrappers ist h"aufig eine "Ubergangsl"osung. Ohne entsprechendes Verst"andnis des Anwendungssystems ist die Einf"uhrung eines Wrappers sinnvoller als tiefgreifende "Anderungen im System. 
 \lb
@@ -96,7 +96,7 @@ Erfolgt der Zugriff auf eine Datenquelle an vielen Stellen im Quellcode der Lega
 % ===
 \subsubsection{Statements}
 
-Eine detailliertere Anpassung der Anwendungssysteme stellt das Anpassen der Aufrufe der Datenquelle dar. Der Zugriff auf Daten erfolgt durch entsprechende Anweisungen im Quellcode einer Anwendung. Die Anpassung entsprechender Statements im Quellcode nimmt dabei die Anpassung des Anwendungssystems vor. Anpassungen in entsprechenden Statements sind der Kern dieser Strategie. Es wird lediglich der tats"achliche Zugriff auf die Datenquelle ver"andert, nicht jedoch sein Struktur. Sind umfassende "Anderungen im Bezug auf die eingesetzte Technologie durchgef"uhrt worden, reicht eine blo"se Anpassung der Statements unter Umst"anden nicht aus.
+Eine detailliertere Anpassung der Anwendungssysteme stellt das Anpassen der Aufrufe der Datenquelle dar. Der Zugriff auf Daten erfolgt durch entsprechende Anweisungen im Quellcode einer Anwendung. Die Anpassung entsprechender Statements im Quellcode nimmt dabei die Anpassung des Anwendungssystems vor. Anpassungen in entsprechenden Statements sind der Kern dieser Strategie. Es wird lediglich der tats"achliche Zugriff auf die Datenquelle ver"andert, nicht jedoch seine Struktur. Sind umfassende "Anderungen im Bezug auf die eingesetzte Technologie durchgef"uhrt worden, reicht eine blo"se Anpassung der Statements unter Umst"anden nicht aus.
 \lb
 Beispiel \ref{code:statementbefore} zeigt den Aufruf der Datenquelle vor Anpassung der Statements. Die Anpassung in Beispiel \ref{code:statementeafter} verdeutlicht die Anpassung. Wo zuvor der Zugriff mit Sprachmitteln des Legacy-Systems erfolgte, sind Statements nach der Anpassung auf die Nutzung von SQL ausgelegt. Die entsprechenden Anpassungen sind umfangreicher als die Nutzung eines Wrappers \citep{henrard-2002}.
 
@@ -108,20 +108,20 @@ Vorteil der Anpassung von Statements ist eine technisch saubere L"osung. Anpassu
 \lb
 Anpassungen an Statements reagieren auf eine ver"anderte Schnittstelle der Datenquelle. Gr"o"sere strukturelle oder konzeptionelle "Anderungen k"onnen jedoch nicht ber"ucksichtigt werden.
 \lb
-Das Anpassen von Statements im Anwendungssystem ist sinnvoll, wenn an nur wenigen Stellen im Quellcode Anpassungen vorgenommen werden. Ist etwa der Zugriff auf die Datenquelle gekapselt, ist die Anpassung nur in geringem Umfang durchzuf"uhren. Im Gegensatz zum Einsatz eines Wrappers an der Schnittstelle, ist die "Anderung von Statements eine integrierte L"osung und greift in das Anwendungssystem ein. Um die Anpassung korrekt durchf"uhren zu k"onnen, ist ein grundlegendes Verst"andnis der betreffenden Anwendung notwendig.
+Das Anpassen von Statements im Anwendungssystem ist sinnvoll, wenn an nur wenigen Stellen im Quellcode Anpassungen vorgenommen werden m"ussen. Ist etwa der Zugriff auf die Datenquelle gekapselt, ist die Anpassung nur in geringem Umfang durchzuf"uhren. Im Gegensatz zum Einsatz eines Wrappers an der Schnittstelle, ist die "Anderung von Statements eine integrierte L"osung und greift in das Anwendungssystem ein. Um die Anpassung korrekt durchf"uhren zu k"onnen, ist ein grundlegendes Verst"andnis der betreffenden Anwendung notwendig.
 
 % ===
 \subsubsection{Logik}
 
 Um alle M"oglichkeiten neuer Datenquellen und -technologien nutzen zu k"onnen, muss unter Umst"anden die Logik des zugreifenden Anwendungssystemes ver"andert werden. Dabei werden Datenstrukturen, Algorithmen und Zugriff innerhalb der Software massiv ver"andert, um auf die neue Umgebung zu reagieren \citep{henrard-2002}.
 \lb
-F"ur eine Anpassung der Logik ist es erforderlich, entsprechende Passagen innerhalb der Anwendungssoftware an die neue Datenquelle anzupassen. Beispiel \ref{code:logicbefore} zeigt den urspr"unglichen Zugriff des Legacy-Systems. Die angepasste Logik ist in Beispiel \ref{code:logicafter} einzusehen. Als Unterschied zur reinen Anpassung der Statements sind die Auswirkungen auf andere Programmteile meist gr"o"ser \citep{henrard-2002}.
+F"ur eine Anpassung der Logik ist es erforderlich, entsprechende Passagen innerhalb der Anwendungssoftware an die neue Datenquelle anzupassen. Beispiel \ref{code:logicbefore} zeigt den urspr"unglichen Zugriff des Legacy-Systems. Die angepasste Logik ist im Beispiel \ref{code:logicafter} einzusehen. Als Unterschied zur reinen Anpassung der Statements sind die Auswirkungen auf andere Programmteile meist gr"o"ser \citep{henrard-2002}.
 
 \lstinputlisting[label=code:logicbefore,caption=Ursp"ungliche Logik f"ur den Zugriff auf die Datenquelle]{../src/logic_before.cbl}
 
 \lstinputlisting[label=code:logicafter,caption=Angepasste Zugriffslogik f"ur Datenquelle in SQL]{../src/logic_after.cbl}
 
-Die Anpassung der Logik und damit potentiell die Nutzung aller M"oglichkeiten der neuen Datenquellen beziehungsweise Schnittstellen erh"oht den Nutzen der Anwendungssoftware. Kann das Softwaresystem von den neuen M"oglichkeiten Gebrauch machen, erh"oht dies m"oglicherweise den Gesch"aftswert der Komponente. 
+Die Anpassung der Logik und damit potentiell die Nutzung aller M"oglichkeiten der neuen Datenquellen beziehungsweise Schnittstellen erh"oht den Nutzen der Anwendungssoftware. Kann das Softwaresystem von den neuen M"oglichkeiten Gebrauch machen, erh"oht dies m"oglicherweise auch den Gesch"aftswert der Komponente. 
 \lb
 Hinter der Anpassung der Logik eines Anwendungssystemes verbirgt sich immer ein gewisses Risiko. Je umfangreicher die "Anderungen ausfallen, desto h"oher ist das Risiko. Gerade funktionale "Anderungen, wie der Zugriff und die Arbeit mit Datenquellen, kann ein hohes Risiko beim Reengineering von Legacy-Systemen mit sich bringen.
 \lb
