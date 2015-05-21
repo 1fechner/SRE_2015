@@ -58,7 +58,7 @@ Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenfo
 Auf konzeptueller Ebene spielt die fachliche Betrachtung vorhandener Daten eine wichtige Rolle. Das Verfahren ist nicht zwangsweise trivial. Analysen und konzeptuelle Konvertierung ben"otigen dabei ein gewisses Verst"andnis der Semantik entsprechender Daten.
 \lb
 Eine konzeptuelle Migration von Daten sorgt vor allem f"ur eine saubere Portierung vorhandener Daten. Schemata werden semantisch korrekt an neue Umgebungen und Formate angepasst. Eine potentielle S"auberung der Daten verringert unter Umst"anden Redundanzen oder nicht ben"otigte Datens"atze und -formate.
-\lb
+\newpage
 Der f"ur eine konzeptuelle Migration notwendige Aufwand ist vergleichsweise hoch. Ben"otigte Spezialisten und erforderliches fachliches Verst"andnis von Daten und Umgebung sorgen eventuell f"ur hohe Kosten.
 
 % ==
@@ -101,6 +101,8 @@ Eine detailliertere Anpassung der Anwendungssysteme stellt das Anpassen der Aufr
 Beispiel \ref{code:statementbefore} zeigt den Aufruf der Datenquelle vor Anpassung der Statements. Die Anpassung in Beispiel \ref{code:statementeafter} verdeutlicht die Anpassung. Wo zuvor der Zugriff mit Sprachmitteln des Legacy-Systems erfolgte, sind Statements nach der Anpassung auf die Nutzung von SQL ausgelegt. Die entsprechenden Anpassungen sind umfangreicher als die Nutzung eines Wrappers \citep{henrard-2002}.
 
 \lstinputlisting[label=code:statementbefore,caption=Aufruf der Datenquelle vor Anpassung der Statements]{../src/statementrewrite_cobol.cbl}
+
+\newpage
 
 \lstinputlisting[label=code:statementeafter,caption=Aufruf der neuen Datenquelle: Zugriff via SQL]{../src/statementrewrite_sql.cbl}
 
