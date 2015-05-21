@@ -3,9 +3,7 @@
 \label{chapter:strategien}
 %TODO Tobias
 
-Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung. Diese Ans"atze fokussieren dabei je die Ebenen Datenquellen und Anwendung\citep{henrard-2002}. Datenbanken und -quellen bilden die grundlegende Ebene. Schemata der Datenhaltung m"ussen angepasst und konvertiert werden. 
-\lb
-Auf Ebene der Anwendung m"ussen in Folge der Migration der Daten umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert wurden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden.
+Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung \citep{henrard-2002}. Datenbanken und -quellen bilden die grundlegende Ebene. Schemata der Datenhaltung m"ussen angepasst und konvertiert werden. Auf Ebene der Anwendung m"ussen in Folge der Migration der Daten umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert wurden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden.
 \lb
 Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
 
@@ -64,7 +62,7 @@ Der f"ur eine konzeptuelle Migration notwendige Aufwand ist vergleichsweise hoch
 % ==
 \subsection{Anwendungsebene}
 
-Sind Datenformate und Daten selbst konvertiert und migriert, m"ussen umgebende Softwaresysteme angepasst werden. Ver"anderte Datenformate beziehungsweise Technologien setzen oft einen ver"anderten Zugriff auf diese Daten voraus. Um den Aufwand f"ur "Anderung innerhalb der nutzenden Anwendungen m"oglichst zu reduzieren, existieren drei Strategien der Anpassung von Anwendungen. Die zeichnen sich durch unterschiedliche Ebenen der Anpassung aus. Je nach Tiefe der Anpassung liegen ihnen unterschiedliche Ans"atze zugrunde. 
+Sind Datenformate und Daten selbst konvertiert und migriert, m"ussen umgebende Softwaresysteme angepasst werden oder bei Neuentwicklung entsprechend konzipiert werden. Ver"anderte Datenformate beziehungsweise Technologien setzen oft einen ver"anderten Zugriff auf diese Daten voraus. Um den Aufwand f"ur "Anderung innerhalb der nutzenden Anwendungen m"oglichst zu reduzieren, existieren drei Strategien der Anpassung von Anwendungen. Die zeichnen sich durch unterschiedliche Ebenen der Anpassung aus. Je nach Tiefe der Anpassung liegen ihnen unterschiedliche Ans"atze zugrunde. 
 
 % ===
 \subsubsection{Wrapper}
@@ -87,9 +85,9 @@ Ein fiktives Legacy-System dient der Illustration. Zu seinen Aufgaben geh"ort de
 
 \lstinputlisting[label=code:wrapperafter,caption=Beispiel Legacy-Programm mit Aufruf der neuen Datenquelle]{../src/wrapper_new.cbl}
 
-Deutlicher Vorteil in der Verwendung eines Wrappers ist, dass die "Anderung des Anwendungssystems sehr gering ausf"allt. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur minimal. Das Risiko wird dabei reduziert \citep{henrard-2002}. 
+Deutlicher Vorteil in der Verwendung eines Wrappers ist die Tatsache, dass die "Anderung des Anwendungssystems eher gering ausf"allt. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur minimal. Das Risiko wird dabei reduziert \citep{henrard-2002}. 
 \lb
-Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur eben diese Implementation und Integration des Wrappers in die bestehende Systemlandschaft. Die Einf"uhrung eines Wrappers ist h"aufig eine "Ubergangsl"osung. Ohne entsprechendes Verst"andnis des Anwendungssystems ist die Einf"uhrung eines Wrappers sinnvoller als tiefgreifende "Anderungen im System. 
+Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur eben diese Implementation und Integration des Wrappers in die bestehende Systemlandschaft. Die Einf"uhrung eines Wrappers ist h"aufig eine "Ubergangsl"osung. Ohne entsprechendes Verst"andnis des Anwendungssystems ist die Einf"uhrung eines Wrappers sinnvoller als tiefgreifende "Anderungen im System \citep{henrard-2002}.
 \lb
 Erfolgt der Zugriff auf eine Datenquelle an vielen Stellen im Quellcode der Legacy-Anwendung, ist die Einf"uhrung eines Wrappers mit vergleichsweise wenig Aufwand verbunden. Anders als die Anpassung von Aufrufen oder der Ver"anderung der Programmlogik, reduziert sich die Einf"uhrung eines Wrappers auf das Austauschen der Aufrufe der Datenquelle. Verarbeitung und Nutzung der Datenquelle werden vom Wrapper wie in der urspr"unglichen Quelle bereitgestellt. Die relativ simple Anpassungen beim Einsatz eines Wrappers und ein sehr geringer Aufwand f"ur die Anpassung im Legacy-System selbst sind die Vorteile bei Nutzung eines Wrappers. Entgegen dem geringen Aufwand im System selbst, erfordert die Implementation eines Wrappers entsprechendes technische Verst"andnis der neuen Datenquelle. Dies garantiert die korrekte Nutzung der Daten durch die Legacy-Anwendung. Durch den bestehenden Umfang zur Nutzung durch das Legacy-System k"onnen technische M"oglichkeiten der neuen Datenquelle unter Umst"anden nicht genutzt werden.
 
@@ -110,14 +108,14 @@ Vorteil der Anpassung von Statements ist eine technisch saubere L"osung. Anpassu
 \lb
 Anpassungen an Statements reagieren auf eine ver"anderte Schnittstelle der Datenquelle. Gr"o"sere strukturelle oder konzeptionelle "Anderungen k"onnen jedoch nicht ber"ucksichtigt werden.
 \lb
-Das Anpassen von Statements im Anwendungssystem ist sinnvoll, wenn an nur wenigen Stellen im Quellcode Anpassungen vorgenommen werden m"ussen. Ist etwa der Zugriff auf die Datenquelle gekapselt, ist die Anpassung nur in geringem Umfang durchzuf"uhren. Im Gegensatz zum Einsatz eines Wrappers an der Schnittstelle, ist die "Anderung von Statements eine integrierte L"osung und greift in das Anwendungssystem ein. Um die Anpassung korrekt durchf"uhren zu k"onnen, ist ein grundlegendes Verst"andnis der betreffenden Anwendung notwendig.
+Das Anpassen von Statements im Anwendungssystem ist sinnvoll, wenn an nur wenigen Stellen im Quellcode Anpassungen vorgenommen werden m"ussen. Ist etwa der Zugriff auf die Datenquelle gekapselt, ist die Anpassung nur in geringem Umfang durchzuf"uhren. Im Gegensatz zum Einsatz eines Wrappers an der Schnittstelle ist die "Anderung von Statements eine integrierte L"osung und greift in das Anwendungssystem ein. Um die Anpassung korrekt durchf"uhren zu k"onnen, ist ein grundlegendes Verst"andnis der betreffenden Anwendung notwendig.
 
 % ===
 \subsubsection{Logik}
 
 Um alle M"oglichkeiten neuer Datenquellen und -technologien nutzen zu k"onnen, muss unter Umst"anden die Logik des zugreifenden Anwendungssystemes ver"andert werden. Dabei werden Datenstrukturen, Algorithmen und Zugriff innerhalb der Software massiv ver"andert, um auf die neue Umgebung zu reagieren \citep{henrard-2002}.
 \lb
-F"ur eine Anpassung der Logik ist es erforderlich, entsprechende Passagen innerhalb der Anwendungssoftware an die neue Datenquelle anzupassen. Beispiel \ref{code:logicbefore} zeigt den urspr"unglichen Zugriff des Legacy-Systems. Die angepasste Logik ist im Beispiel \ref{code:logicafter} einzusehen. Als Unterschied zur reinen Anpassung der Statements sind die Auswirkungen auf andere Programmteile meist gr"o"ser \citep{henrard-2002}.
+F"ur eine Anpassung der Logik ist es erforderlich, entsprechende Passagen innerhalb der Anwendungssoftware an die neue Datenquelle anzupassen. Beispiel \ref{code:logicbefore} zeigt den urspr"unglichen Zugriff des Legacy-Systems. Die angepasste Logik ist in Beispiel \ref{code:logicafter} einzusehen. Als Unterschied zur reinen Anpassung der Statements sind die Auswirkungen auf andere Programmteile meist gr"o"ser \citep{henrard-2002}.
 
 \lstinputlisting[label=code:logicbefore,caption=Ursp"ungliche Logik f"ur den Zugriff auf die Datenquelle]{../src/logic_before.cbl}
 
