@@ -115,10 +115,18 @@
 		\frametitle{Datenbankebene}
 		
 		\begin{itemize}
-			\item \textbf{Physisch} \\
-			TODO %TODO
-			\item \textbf{Konzeptuell} \\
-			TODO %TODO
+			\item \textbf{Physisch}
+				\begin{itemize}
+					\item "Ubertrag von Daten
+					\item H"aufig Portierung auf neues DBMS, keine fachliche Analyse
+					\item Niedriger Aufwand, Automatisierbar
+				\end{itemize}
+			\item \textbf{Konzeptuell}
+				\begin{itemize}
+					\item Neukonzeptionierung der Datenhaltung
+					\item Fachliche Betrachtung
+					\item Hoher Aufwand
+				\end{itemize}
 		\end{itemize}
 	\end{frame}	
 	
@@ -136,17 +144,29 @@
 		\frametitle{Anwendungsebene}
 		
 		\begin{itemize}
-			\item \textbf{Einsatz eines Wrappers} \\
-				TODO %TODO
-			\item \textbf{Anpassung von Statements} \\
-				TODO %TODO
-			\item \textbf{Anpassung der Zugriffslogik} \\
-				TODO %TODO
+			\item \textbf{Einsatz eines Wrappers} 
+				\begin{itemize}
+					\item Wrapper verwaltet Zugriff auf neue Datenquelle
+					\item Anwendung benutzt Wrapper statt neue Datenquelle
+					\item Nutzung durch Wrapper f"ur Anwendung nur minimal ver"andert
+					\item Niedriger Aufwand, erfordert wenig Kenntnisse der Anwendung
+				\end{itemize}
+			\item \textbf{Anpassung von Statements} 
+				\begin{itemize}
+					\item Aufrufe der Datenquelle werden angepasst
+					\item Mittlerer Aufwand, erfordert mittlere Kenntnisse der Anwendung
+				\end{itemize}
+			\item \textbf{Anpassung der Zugriffslogik}
+				\begin{itemize}
+					\item Zugriffslogik wird angepasst
+					\item Technische M"oglichkeiten der neuen Quellen k"onnen genutzt werden
+					\item Hoher Aufwand, erfordert umfangreiche Kenntnisse der Anwendung
+				\end{itemize}
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Vorgeen zur Einf"uhrung eines Wrappers}
+		\frametitle{Vorgehen zur Einf"uhrung eines Wrappers}
 		
 		\centering
 		\includegraphics[height = 7cm]{../images/large_scale_fig_01.png} \\
