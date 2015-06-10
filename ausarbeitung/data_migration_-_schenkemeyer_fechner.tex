@@ -53,6 +53,10 @@
 \setlength{\parindent}{0em}
 
 \begin{document}
+
+\pagenumbering{gobble}
+\clearpage
+\thispagestyle{empty}
 	
 % === TITLE PAGE ===
 \title{Ans"atze und Verfahren der Datenmigration}
@@ -76,8 +80,7 @@
 
 	\noindent Die Erhaltung von Daten aus dem Kontext von Legacy-Systemen spielt eine entscheidende Rolle beim Reengineering von Software. Auswahl, Extraktion und Konvertierung vorhandener Daten in ein neues Umfeld sind nur einige der T"atigkeiten der Datenmigration. \\
 	Unterschiedliche Strategien zur Migration von Daten setzen unterschiedliche Schwerpunkte um diese ihrem Kontext entsprechend durchf"uhren zu k"onnen. Die Betrachtung aus Sicht sowohl der Datenquellen als auch der umliegenden Anwendungssysteme bildet den Kern dieser Strategien. Unterschiedliche Strategien kommen dabei in verschiedenen Situationen zum Einsatz und besitzen jeweils eigene Vor- und Nachteile. \\
-	Dar"uber hinaus bildet die Datenmigration ein hohes Risiko für das Unternehmen. Um dieses Risiko zu reduzieren, existieren verschiedene Prozessmodelle. Diese versuchen, den Ablauf der Datenmigration in einzelne Phasen zu strukturieren und die jeweiligen Kernaufgaben zu identifizieren. Sie bilden die Grundlage für die Entscheidung, welche der unterschiedlichen Vorgehensweisen für die Datenmigration an effektivsten und mit dem geringsten Risiko durchzuf"uhren ist. \\
-	Die Vorgehensweisen beleuchten dabei die technische Prozedur der Datenmigration vom Legacy-System zum neuen System. Zu entscheiden ist, ob eine schrittweise oder komplette Migration durchgef"uhrt werden soll. Beide Ans"atze eignen sich nicht f"ur jedes System. Sie m"ussen f"ur eine erfolgreiche Datenmigration mit Bedacht gewählt werden.\\
+	Dar"uber hinaus bildet die Datenmigration ein hohes Risiko für das Unternehmen. Um dieses Risiko zu reduzieren, existieren verschiedene Prozessmodelle. Diese versuchen, den Ablauf der Datenmigration in einzelne Phasen zu strukturieren und die jeweiligen Kernaufgaben zu identifizieren. Die Vorgehensweisen beleuchten dabei die technische Prozedur der Datenmigration vom Legacy-System zum neuen System. //
 	Ziel dieser Ausarbeitung ist es, die allgemeine Thematik der Datenmigration zu erl"autern, sowie Strategien, Prozessmodelle und Vorgehensweisen vorzustellen.
 \end{abstract}
 
@@ -90,11 +93,15 @@
 \listoffigures
 %\listoftables
 %\lstlistoflistings
-\newpage
+
+%\newpage
 
 % ===========================================================================================================
 % ======= BEGIN CONTENT =====================================================================================
 % ===========================================================================================================
+
+\clearpage
+\pagenumbering{arabic}
 
 \include{10_section_einleitung/10_einleitung}
 \include{20_section_motivation/20_motivation}
@@ -104,9 +111,12 @@
 \include{90_section_fazit/90_fazit}
 
 
+
 % ===========================================================================================================
 % ======= END CONTENT =======================================================================================
 % ===========================================================================================================
+
+\pagenumbering{Roman}
 
 % === BIB ===
 \newpage
