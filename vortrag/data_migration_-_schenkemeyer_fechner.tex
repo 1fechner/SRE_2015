@@ -274,17 +274,80 @@
 	% ===========================================================================================================
 	\section{Einf"uhrungsstrategien der Datenmigration}
 	
-	\subsection{Big-Bang-Ansatz}
+	\subsection{}
 	
-	%TODO
-	
-	\subsection{Chicken-Little-Ansatz}
-	
-	%TODO
+	\begin{frame}
+		\frametitle{Einf"uhrungsstrategien der Datenmigration}
+		 
+		 \textbf{Welche Einf"uhrungsstragien gibt es?}
+		 \\
+		\begin{itemize}
+			\item Big-Bang-Ansatz
+			\begin{itemize}
+				\item Datenmigration erfolgt auf einen Schlag
+			\end{itemize}
+			
+			\item Chicken-Little-Ansatz
+			\begin{itemize}
+				\item Datenmigration erfolgt Modul für Modul
+			\end{itemize}
+			
+			\item Butterfly-Ansatz
+			\begin{itemize}
+				\item Datenmigration erfolgt in Sch"uben
+			\end{itemize}
+			
+		\end{itemize}
+		
+	\end{frame}
 	
 	\subsection{Butterfly-Ansatz}
 	
-	%TODO
+	\begin{frame}
+		\frametitle{Butterfly-Ansatz}
+	
+		%TODO Grafik
+	\end{frame}
+	
+	\subsection{Vor- \& Nachteile der Ans"atze}
+	\begin{frame}
+		\frametitle{Einf"uhrungsstrategien der Datenmigration}
+		
+                \begin{footnotesize}
+                \begin{table}[h]
+                \centering
+                \begin{tabular}{|p{1.5cm}|p{4.25cm}|p{4.25cm}|}
+               
+                \hline
+                & \textbf{Vorteile} & \textbf{Nachteile} \\ 
+		\hline
+		\textbf{Big-Bang} & einfache Vorgehensweise & hohes Risiko \\
+		\cline{3-3}
+		& & Legacy-System während Migration nicht einsetzbar \\
+		& & \\
+		\hline
+		
+		\textbf{Chicken-Little} & Während Migration kann auf beiden Systemen gearbeitet werden & benötigt hohes fachliches Verständnis \\
+		\cline{2-3}
+		& Legacy-System kann Schrittweise ersetzt werden & Gateways können Performance verschlechtern \\
+		\cline{3-3}
+		& & kann sehr komplex werden \\
+		& & \\
+		\hline
+		
+		\textbf{Butterfly} & Während Migration kann auf dem Legacy-System weitergearbeitet werden & Data-Access-Allocator \& Chrysaliser müssen entwickelt werden \\
+		\cline{2-3}
+		& Zeitaufwand kann relativ sicher berechnet & Je nach Datenbestand hoher Hardwareaufwand \\
+		& & \\
+		\hline
+		
+		
+		\end{tabular}
+		\end{table}
+		\end{footnotesize}
+	
+	\end{frame}
+	
 	
 	% ===========================================================================================================
 	\section{Fazit}
