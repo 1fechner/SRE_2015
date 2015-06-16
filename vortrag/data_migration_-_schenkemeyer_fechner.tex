@@ -17,22 +17,19 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
-\usepackage{latexsym}
-\usepackage{stmaryrd}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsxtra}
-\usepackage{amsthm}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{bibentry}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage[square,sort,comma,numbers]{natbib}
 
 % Logos
 \newcommand{\resLogo}{../images/logo}
 \newcommand{\resFBI}{../images/logo_fbi}
 \newcommand{\resLogoSingle}{../images/logo_uhh}
 \newcommand{\resWatermark}{../images/watermark}
+% --- Commands ---
+\renewcommand{\bibsection}{\subsubsection*{\bibname }}
 
 % Custom commands
 \newcommand{\gqq}[1]{\glqq#1\grqq} % encloses words in German quotes
@@ -42,6 +39,13 @@
 \author[Schenkemeyer, Fechner]{\includegraphics[height=1cm]{\resLogo}\\Julian Schenkemeyer, Tobias Fechner\\ \texttt{\footnotesize\{5schenke,1fechner\}@informatik.uni-hamburg.de}}
 \institute[UHH]{Universität Hamburg}
 \date{\today}
+
+% Section Heading
+\AtBeginSection{\frame{
+		\frametitle{\insertsection}
+		\tableofcontents[currentsection]}
+	}
+
 
 % === DOCUMENT ===
 \begin{document}
