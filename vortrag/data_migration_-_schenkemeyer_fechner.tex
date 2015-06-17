@@ -78,21 +78,24 @@
 	\section{Datenmigration im Kontext des Reengineering}
 	
 	\begin{frame}
-		\frametitle{Datenmigration}
+		\frametitle{Datenmigration - Definition}
 		
-		\textit{''Data migration is the selection, perparation, extraction, transformation and
+		\textit{''Data migration is the selection, preparation, extraction, transformation and
 		permanent movement of appropriate data that is of the right quality to the
 		right place at the right time and the decommissioning of legacy data stores''} \cite{morris-2012}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{H"aufige Riskien der Datenmigration}
+	\begin{frame} %TODO Eventuell optional
+		\frametitle{Riskien der Datenmigration \cite{morris-2012}}
 		
 		\begin{itemize}
-			\item Technologiezentrierung
-			\item Mangel an Spezialisten
 			\item Unterschätzen der Datenmigration
-			\item Problemzuweisung
+			\item[]
+			\item F"alschliche Technologiezentrierung
+			\item[]
+			\item Mangel an Spezialisten
+%			\item[]
+%			\item Gegenseitige Problemzuweisung
 		\end{itemize}
 	\end{frame}
 	
@@ -100,23 +103,10 @@
 	\section{Generelles Vorgehen}
 	
 	\begin{frame}
-		\frametitle{"Uberblick}
-		
-		Prozessmodell einer Datenmigration
-		
+		\frametitle{Prozessmodell der Datenmigration}
+				
 		\centering
 		\includegraphics[width=\textwidth]{../images/prozessmodellt.png}
-		
-%		\begin{enumerate}
-%			\item Initialisierung
-%			
-%			\item Migrationsentwicklung
-%			
-%			\item Testen
-%			
-%			\item Umstellung auf das neue System
-%			
-%		\end{enumerate}
 	\end{frame}
 	
 	\begin{frame}
@@ -131,10 +121,10 @@
 			\begin{itemize}
 				\item Um was für ein Legacy-System handelt es sich?
 				\item Welche Daten sollen auf das neue System übertragen werden?
-				\newline
-				\item Entscheidung dar"uber welche Vorgehensweise verwendet werden soll
-				\item initiale Aufwandseinschätzung
-				\item Einrichten einer 
+				\item[]
+				\item Entscheidung dar"uber, welche Vorgehensweise verwendet werden soll
+				\item Initiale Aufwandseinschätzung
+				\item Einrichten einer %TODO Satz fehlt noch
 			\end{itemize}
 		\end{enumerate}
 	\end{frame}
@@ -151,9 +141,9 @@
 			\item \textbf{Migrationsentwicklung}
 			\begin{itemize}
 				\item "Uberspielen eines Datenbackup auf die Migrationsplattform
-				\item Vertiefung der Analyse des Datenbestands des Legacy-Systems
+				\item Vertiefende Analyse der Datenbest"ande des Legacy-Systems
 				\item Entwicklung der Migrationsskripte und -werkzeuge
-				\item evtl. Durchf"uhrung von Data-Cleansing
+				\item Evtl. Durchf"uhrung von Data-Cleansing
 			\end{itemize}
 			
 		\end{enumerate}
@@ -170,7 +160,7 @@
 			
 			\item \textbf{Testen}
 			\begin{itemize}
-				\item "Uberpr"ufung der Funktionalit"at der Migrationsskripte
+				\item "Uberpr"ufung von Funktionalit"at der Migrationsskripte
 			\end{itemize}
 			
 		\end{enumerate}
@@ -198,13 +188,16 @@
 	\section{Strategien zur Datenmigration}
 	
 	\begin{frame}
-		\frametitle{Stratgien}
+		\frametitle{Strategien der Datenmigration}
 		
 		\begin{itemize}
-			\item Strategien auf unterschiedlichen Ebenen
-			\item "Anderungen in Daten ziehen "Anderungen in nutzenden Anwendungen nach sich
-			\item Ziel ist die Erhaltung von Daten
+			\item Strategien mit unterschiedlichen Schwerpunkten
+			\item[]
 			\item Unterschiedliche Schwerpunkte erfordern unterschiedliches technisches und fachliches Wissen
+			\item[]
+			\item "Anderungen in Datenhaltung ziehen "Anderungen in nutzenden Anwendungen nach sich
+			\item[]
+			\item Ziel ist die Erhaltung von Daten
 		\end{itemize}
 	\end{frame}
 	
@@ -218,13 +211,14 @@
 				\begin{itemize}
 					\item "Ubertrag von Daten
 					\item H"aufig Portierung auf neues DBMS, keine fachliche Analyse
-					\item Niedriger Aufwand, Automatisierbar
+					\item Niedriger Aufwand, gut automatisierbar
 				\end{itemize}
+			\item[]
 			\item \textbf{Konzeptuell}
 				\begin{itemize}
 					\item Neukonzeptionierung der Datenhaltung
 					\item Fachliche Betrachtung
-					\item Hoher Aufwand
+					\item Hoher Aufwand, schlecht automatisierbar
 				\end{itemize}
 		\end{itemize}
 	\end{frame}	
@@ -245,16 +239,18 @@
 		\begin{itemize}
 			\item \textbf{Einsatz eines Wrappers} 
 				\begin{itemize}
-					\item Wrapper verwaltet Zugriff auf neue Datenquelle
-					\item Anwendung benutzt Wrapper statt neue Datenquelle
-					\item Nutzung durch Wrapper f"ur Anwendung nur minimal ver"andert
+					\item Wrapper stellt Zugriff auf neue Datenquelle bereit
+%					\item Anwendung benutzt Wrapper statt neue Datenquelle
+%					\item Nutzung durch Wrapper f"ur Anwendung nur minimal ver"andert
 					\item Niedriger Aufwand, erfordert wenig Kenntnisse der Anwendung
 				\end{itemize}
+			\item[]
 			\item \textbf{Anpassung von Statements} 
 				\begin{itemize}
 					\item Aufrufe der Datenquelle werden angepasst
 					\item Mittlerer Aufwand, erfordert mittlere Kenntnisse der Anwendung
 				\end{itemize}
+			\item[]
 			\item \textbf{Anpassung der Zugriffslogik}
 				\begin{itemize}
 					\item Zugriffslogik wird angepasst
@@ -279,39 +275,33 @@
 	
 	\begin{frame}
 		\frametitle{Einf"uhrungsstrategien der Datenmigration}
-		 
-		 \textbf{Welche Einf"uhrungsstragien gibt es?}
-		 \\
+
 		\begin{itemize}
-			\item Big-Bang-Ansatz
-			\begin{itemize}
-				\item Datenmigration erfolgt auf einen Schlag
-			\end{itemize}
-			
-			\item Chicken-Little-Ansatz
-			\begin{itemize}
-				\item Datenmigration erfolgt Modul für Modul
-			\end{itemize}
-			
-			\item Butterfly-Ansatz
-			\begin{itemize}
-				\item Datenmigration erfolgt in Sch"uben
-			\end{itemize}
-			
-		\end{itemize}
-		
+			\item \textbf{Big-Bang-Ansatz}
+				\begin{itemize}
+					\item Datenmigration erfolgt auf einen Schlag
+				\end{itemize}
+			\item[]
+			\item \textbf{Chicken-Little-Ansatz}
+				\begin{itemize}
+					\item Datenmigration erfolgt Modul für Modul
+				\end{itemize}
+			\item[]
+			\item \textbf{Butterfly-Ansatz}
+				\begin{itemize}
+					\item Datenmigration erfolgt in Sch"uben
+				\end{itemize}			
+		\end{itemize}		
 	\end{frame}
 	
 	\subsection{Butterfly-Ansatz}
 	
 	\begin{frame}
 		\frametitle{Butterfly-Ansatz}
-	
 		
 		\centering
-		\includegraphics[width=\textwidth]{../images/Butterfly.png} \\
-
-		
+		\includegraphics[width=0.95\textwidth]{../images/Butterfly.png} \\
+		\tiny Quelle:  %TODO Hier noch die Quelle als Cite		
 	\end{frame}
 	
 	\subsection{Vor- \& Nachteile der Ans"atze}
@@ -360,7 +350,7 @@
 	\begin{frame}
 		\frametitle{Fazit}
 		
-		Es gibt nicht das eine Verfahren zur Durchf"uhrung einer Datenmigration
+		Es gibt nicht kein omnipotentes Verfahren zur Durchf"uhrung einer Datenmigration
 		\begin{itemize}
 			\item Welche Art von Unternehmen liegt vor?
 			\item Welche Art von Legacy-System soll migriert werden?
