@@ -5,18 +5,18 @@
 
 Als Kernelement der Datenmigration stehen unterschiedliche Strategien zur Verf"ugung \citep{henrard-2002}. Datenbanken und -quellen bilden die grundlegende Ebene. Schemata der Datenhaltung m"ussen angepasst und konvertiert werden. Auf Ebene der Anwendung m"ussen in Folge der Migration der Daten umliegende Softwaresysteme mit Zugriff auf diese Daten ihre Nutzung der Datenquellen anpassen. Da unter Umst"anden Schnittstellen und Datenformate ver"andert wurden, muss die spezifische Nutzung dieser der Evolution auf Datenbankebene angepasst werden.
 \lb
-Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Gruppen innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
+Einzelne Strategien bieten Vor- und Nachteile. Sie sind von unterschiedlichen Beteiligten innerhalb eines Unternehmens oder Migrationsprojektes vorzunehmen.
 
 
 % == 
 \subsection{Datenbankebene}
 
-Auf Ebene der Daten erfolgt eine Anpassung von zugrundeliegenden Technologien, Datenbankschemata oder Datenformaten. Gr"unde f"ur eine Migration auf dieser Ebene erstrecken sich von einem Wechsel auf zukunftssichere Technologien oder einer Anpassung von Gesch"aftsprozessen. Unterschiedliche Ans"atze beg"unstigen oder hemmen dabei das Erreichen eben dieser Ziele. 
+Auf Ebene der Datenquelle erfolgt eine Anpassung von zugrundeliegenden Technologien, Datenbankschemata oder Datenformaten. Gr"unde f"ur eine Migration auf dieser Ebene erstrecken sich von einem Wechsel auf zukunftssichere Technologien bis zu einer Anpassung von Gesch"aftsprozessen. Unterschiedliche Ans"atze beg"unstigen oder hemmen dabei das Erreichen eben dieser Ziele. 
 
 % ===
 \subsubsection{Physisch}
 
-Die Migration von Daten auf physischer Ebene schlie"st die Konvertierung von Datenformaten und -schemata auf rein struktureller Ebene ein. Daten werden dabei ohne Betrachtung der semantischen Zusammenh"ange auf neue Formate oder Technologien "ubertragen. Ein Beispiel dafür ist die Abbildung relationaler Datenmodelle auf Objekt-orientierte Schemata \citep{alhajj-2001}, \citep{behm-1997}. Dabei werden Daten und ihre Modellierung in ein neues Schema "ubertragen, fachlich dennoch weitestgehend unver"andert "ubernommen und nicht hinterfragt.
+Die Migration von Daten auf physischer Ebene schlie"st die Konvertierung von Datenformaten und -schemata auf rein struktureller Ebene ein. Daten werden dabei ohne Betrachtung der semantischen Zusammenh"ange auf neue Formate oder Technologien "ubertragen. Ein Beispiel dafür ist die Abbildung relationaler Datenmodelle auf Objekt-orientierte Schemata \citep{alhajj-2001}, \citep{behm-1997}. Dabei werden Daten und ihre Modellierung in ein neues Schema "ubertragen, fachlich dennoch weitestgehend unver"andert "ubernommen und nicht hinterfragt. Anhand des beispielhaften Szenarios (Siehe \ref{ref:scenario}) w"are etwa die Migration von \textit{ISAM} auf ein SQL-basierte Datenbank sinnvoll.
 \lb
 Grunds"atzlich muss zun"achst das vorhandene Format der Daten analysiert werden. Aus den gewonnenen Erkenntnissen kann die "Ubersetzung auf neue Schemata und Strukturen erfolgen. Sind, etwa beim Wechsel eines Datenbankformates in ein anderes, keine "aquivalenten Konstrukte vorhanden, m"ussen Strukturen, welche diesen am "ahnlichsten sind, gew"ahlt werden. 
 \lb
@@ -53,10 +53,10 @@ Die konzeptuelle Migration der Daten f"uhrt auf vorhandenen Schemata und Datenfo
 	\tiny Quelle: \citep[Abbildung~2]{henrard-2002}
 \end{figure}
 
-Auf konzeptueller Ebene spielt die fachliche Betrachtung vorhandener Daten eine wichtige Rolle. Das Verfahren ist nicht zwangsweise trivial. Analysen und konzeptuelle Konvertierung ben"otigen dabei ein gewisses Verst"andnis der Semantik entsprechender Daten.
+Auf konzeptueller Ebene spielt die fachliche Betrachtung vorhandener Daten eine wichtige Rolle. Das Verfahren ist nicht zwangsweise trivial. Analysen und konzeptuelle Konvertierung ben"otigen dabei ein gewisses Verst"andnis der Semantik entsprechender Daten. Bezogen auf das genannte Szenario (Siehe \ref{ref:scenario}) erfolgt eine Neukonzeptionierung der zugrundeliegenden Daten. Auf Basis der an das neue System angepassten Gesch"aftsprozesse erfolgt auch eine semantische Modernisierung der Datenquellen.
 \lb
 Eine konzeptuelle Migration von Daten sorgt vor allem f"ur eine saubere Portierung vorhandener Daten. Schemata werden semantisch korrekt an neue Umgebungen und Formate angepasst. Eine potentielle S"auberung der Daten verringert unter Umst"anden Redundanzen oder nicht ben"otigte Datens"atze und -formate.
-\newpage
+\lb
 Der f"ur eine konzeptuelle Migration notwendige Aufwand ist vergleichsweise hoch. Ben"otigte Spezialisten und erforderliches fachliches Verst"andnis von Daten und Umgebung sorgen eventuell f"ur hohe Kosten.
 
 % ==
@@ -67,9 +67,7 @@ Sind Datenformate und Daten selbst konvertiert und migriert, m"ussen umgebende S
 % ===
 \subsubsection{Wrapper}
 
-Um den Aufwand f"ur "Anderungen innerhalb von Softwaresystemen gering zu halten, bietet sich die Implementation eines Wrappers oder Adapters an. Dieser stellt eine Schnittstelle zwischen dem urspr"unglichen, unver"anderten Anwendungssystem und der neu strukturierten Datenquelle dar. Der Wrapper wird dabei als zus"atzliche Schicht zwischen beiden Komponenten eingef"ugt. Er nimmt Aufrufe der urspr"unglichen Anwendung entgegen, "ubersetzt sie in Anfragen an die neue Datenquelle und konvertiert die Ergebnisse der Anfrage f"ur das urspr"ungliche System. Er fungiert als Vermittler zwischen beiden Systemen und erspart so den Aufwand umfangreicher "Anderungen f"ur Abfragen im Anwendungssystem.
-\lb
-Abbildung \ref{pic:application_wrapper} zeigt das Schema zur Nutzung eines Wrappers. Die Abstraktion erfolgt dabei auf Basis von Prozeduren zum Aufruf der neuen Datenquelle durch den Wrapper. Vor der Einbindung des Wrappers m"ussen diese in die Legacy-Anwendung eingef"ugt werden. Nur so kann der sp"atere Aufruf des Wrappers anstatt der urspr"unglichen Datenquelle erfolgen \cite{henrard-2008}. 
+Um den Aufwand f"ur "Anderungen innerhalb von Softwaresystemen gering zu halten, bietet sich die Implementation eines Wrappers oder Adapters an. Dieser stellt eine Schnittstelle zwischen dem urspr"unglichen, unver"anderten Anwendungssystem und der neu strukturierten Datenquelle dar. Der Wrapper wird dabei als zus"atzliche Schicht zwischen beiden Komponenten eingef"ugt. Er nimmt Aufrufe der urspr"unglichen Anwendung entgegen, "ubersetzt sie in Anfragen an die neue Datenquelle und konvertiert die Ergebnisse der Anfrage f"ur das urspr"ungliche System. Er fungiert als Vermittler zwischen beiden Systemen und erspart so den Aufwand umfangreicher "Anderungen f"ur Abfragen im Anwendungssystem. Anhand des Beispiels (Siehe \ref{ref:scenario}) l"asst sich dies erl"autern: Die Datenquellen des Systems werden neu konzipiert, das urspr"ungliche System greift "uber die selbe Schnittstelle wie zuvor nicht mehr auf die urspr"ungliche Quelle, sondern durch den Wrapper als Vermittler auf die neue Datenquelle zu.
 
 \begin{figure}[h!]
 	\centering
@@ -79,12 +77,8 @@ Abbildung \ref{pic:application_wrapper} zeigt das Schema zur Nutzung eines Wrapp
 	\tiny Quelle: \citep[Abbildung~1]{henrard-2008}
 \end{figure}
 
-%Ein fiktives Legacy-System dient der Illustration. Zu seinen Aufgaben geh"ort der Zugriff auf Kundendaten. Diese werden im Legacy-System mit naiven Mitteln zur Datenhaltung verwaltet \citep{henrard-2002}. Beispiel \ref{code:wrapperbefore} zeigt den urspr"unglichen Aufruf der Datenquelle. Das nachfolgende Beispiel \ref{code:wrapperafter} illustriert den neuen Zugriff auf den Wrapper. Die Anpassung an dieser Schnittstelle ist gering \citep{henrard-2002}\footnote{Die Quellcode-Beispiele auf den folgenden Seiten sind \citep{henrard-2002} entnommen und dienen lediglich der Illustration}.
-
-%\lstinputlisting[label=code:wrapperbefore,caption=Beispiel Legacy-Programm mit Aufruf der urspr"unglichen Datenquelle]{../src/wrapper_legacy.cbl}
-%
-%\lstinputlisting[label=code:wrapperafter,caption=Beispiel Legacy-Programm mit Aufruf der neuen Datenquelle]{../src/wrapper_new.cbl}
-
+Abbildung \ref{pic:application_wrapper} zeigt das Schema zur Nutzung eines Wrappers. Die Abstraktion erfolgt dabei auf Basis von Prozeduren zum Aufruf der neuen Datenquelle durch den Wrapper. Vor der Einbindung des Wrappers m"ussen diese aus der Legacy-Anwendung extrahiert werden. Nur so kann der sp"atere Aufruf des Wrappers anstatt der urspr"unglichen Datenquelle erfolgen \cite{henrard-2008}. 
+\lb
 Deutlicher Vorteil in der Verwendung eines Wrappers ist die Tatsache, dass die "Anderung des Anwendungssystems eher gering ausf"allt. Der Einsatz eines Wrappers gef"ahrdet die Integrit"at des nutzenden Softwaresystems nur minimal. Das Risiko wird dabei reduziert \citep{henrard-2002}. 
 \lb
 Durch Implementation eines Wrappers entsteht zus"atzlicher Aufwand f"ur eben diese Implementation und Integration des Wrappers in die bestehende Systemlandschaft. Die Einf"uhrung eines Wrappers ist h"aufig eine "Ubergangsl"osung. Ohne entsprechendes Verst"andnis des Anwendungssystems ist die Einf"uhrung eines Wrappers sinnvoller als tiefgreifende "Anderungen im System \citep{henrard-2002}.
