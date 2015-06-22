@@ -41,8 +41,9 @@ Neben den genannten Vorteilen hat der Chicken-Little-Ansatz auch einige Nachteil
 \lb
 Alles in Allem betrachtet bietet der Chicken-Little-Ansatz viele Vorteile. Die inkrementelle Herangehensweise minimiert viele Risiken und Probleme, wie z.B. die Ausfallzeiten des Big-Bang-Ansatzes. Aus diesem Grund eignet sich Chicken-Little auch zum Einsatz in gr"o"seren Unternehmen. Jedoch muss bedacht werden, dass die Durchf"uhrung des Chicken-Little-Ansatzes dennoch sehr komplex erscheinen kann.
 
-\subsection{Butterfly-Ansatz}
+%\cleardoublepage
 
+\subsection{Butterfly-Ansatz}
 
 % versucht Problematik des Gateway zu umgehen
 % Daten des Legacy-System werden in TempStorages "ubertragen
@@ -64,7 +65,7 @@ Zu Beginn der Datenmigration wird beim Butterfly-Ansatz der aktuelle Datenbestan
 	\tiny Quelle: \citep[Abbildung~11]{wuLawless-1997}
 \end{figure}
 
-\newpage
+%\newpage
 
 Durch Data-Access-Allocator und tempor"are Speicher wird sichergestellt, dass w"ahrend der Datenmigration mit dem Legacy-System normal weitergearbeitet werden kann. F"ur die "Ubertragung der Daten auf das neue System wird allerdings noch ein \textit{Daten-"-Transformator}, ein sogenannter \textit{Chrysaliser} ben"otigt \citep[S.~202]{wuLawlessBisbal-1997}. Dieser Chrysaliser "ubernimmt die Rolle der Migrationsskripte. Er enth"alt die Informationen "uber die Datenbankschemata des Legacy- und des neuen Systems sowie die Schemata des Legacy-Systems, welche umgewandelt werden m"ussen \citep[S.~202]{wuLawlessBisbal-1997}. 
 \lb
