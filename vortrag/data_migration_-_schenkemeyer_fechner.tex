@@ -125,7 +125,7 @@
 				\item Um was für ein Legacy-System handelt es sich?
 				\item Welche Daten sollen auf das neue System übertragen werden?
 				\item[]
-				\item Entscheidung dar"uber, welche Vorgehensweise verwendet werden soll
+				\item Entscheidung dar"uber, welche Einführungsstrategie verwendet werden soll
 				\item Initiale Aufwandseinschätzung
 				\item Einrichten einer Migrationsplattform
 			\end{itemize}
@@ -133,7 +133,7 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Abschnitt 2 - Initialisierung}
+		\frametitle{Abschnitt 2 - Migrationsentwicklung}
 		
 		\centering
 		\includegraphics[width=\textwidth]{../images/prozessmodell2t.png}\\
@@ -146,7 +146,6 @@
 				\item "Uberspielen eines Datenbackup auf die Migrationsplattform
 				\item Vertiefende Analyse der Datenbest"ande des Legacy-Systems
 				\item Entwicklung der Migrationsskripte und -werkzeuge
-				\item Evtl. Durchf"uhrung von Data-Cleansing
 			\end{itemize}
 			
 		\end{enumerate}
@@ -180,7 +179,7 @@
 						
 			\item \textbf{Umstellung auf das neue System}
 			\begin{itemize}
-				\item Je nach gew"ahlter Vorgehensweise verl"auft dieser Abschnitt unterschiedlich
+				\item Je nach gew"ahlter Einführungsstrategie verl"auft dieser Abschnitt unterschiedlich
 				\item letzte Anpassungen
 				\newline
 				\item Erstellung eines Erfahrungsberichts
@@ -329,12 +328,10 @@
 		\textbf{Chicken-Little} & Während Migration kann auf beiden Systemen gearbeitet werden & benötigt hohes fachliches Verständnis \\
 		\cline{2-3}
 		& Legacy-System kann Schrittweise ersetzt werden & Gateways können Performance verschlechtern \\
-		\cline{3-3}
-		& & kann sehr komplex werden \\
 		& & \\
 		\hline
 		
-		\textbf{Butterfly} & Während Migration kann auf dem Legacy-System weitergearbeitet werden & Data-Access-Allocator \& Chrysaliser müssen entwickelt werden \\
+		\textbf{Butterfly} & Während Migration kann auf dem Legacy-System weitergearbeitet werden & benötigt hohes fachliches Verständnis \\
 		\cline{2-3}
 		& Zeitaufwand kann relativ sicher berechnet & Je nach Datenbestand hoher Hardwareaufwand \\
 		& & \\
