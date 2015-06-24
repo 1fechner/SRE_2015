@@ -1,0 +1,130 @@
+% !TeX spellcheck = de_DE
+%\documentclass[11pt]{scrartcl}
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{float}
+\usepackage{amsxtra}
+\usepackage[square,numbers]{natbib}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{hyperref}
+
+\definecolor{listinggray}{gray}{0.5}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=Cobol,
+	basicstyle=\scriptsize,
+	upquote=true,
+	aboveskip={1.5\baselineskip},
+	columns=fixed,
+	showstringspaces=false,
+	extendedchars=true,
+	breaklines=true,
+	frame=single,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	identifierstyle=\ttfamily,
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+\newcommand{\ncite}{\footnote{Citation needed}}
+\newcommand{\lb}{\\}
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{definition}[theorem]{Definition} 
+
+\renewcommand*{\lstlistlistingname}{Quellcodeverzeichnis}
+\renewcommand*\lstlistingname{Quellcode-Beispiel}
+
+\setlength{\parindent}{0em}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\clearpage
+\thispagestyle{empty}
+	
+% === TITLE PAGE ===
+\title{Ans"atze und Verfahren der Datenmigration \\ \Large Datenmigration im Kontext des Reengineering}
+
+%\subtitle{Datenmigration im Kontext des Reengineering} 
+
+\author{Julian Schenkemeyer, Tobias Fechner (Universit"at Hamburg)\\
+	{\texttt{\{5Schenke,1fechner\}@informatik.uni-hamburg.de}}}
+
+\date{Modul Software Reengineering 2015/2016\\
+  \small Fachbereich Informatik\\ 
+  Arbeitsbereich Softwarekonstruktion \& Werkzeuge\\ 
+  Universit"at Hamburg\\[4mm]
+  \today}
+
+\maketitle
+
+% === ABSTRACT ===
+\begin{abstract}
+Die Erhaltung von Daten aus dem Kontext von Legacy-Systemen spielt eine entscheidende Rolle beim Reengineering von Software. Auswahl, Extraktion und Konvertierung vorhandener Daten in ein neues Umfeld sind nur einige der T"atigkeiten der Datenmigration. \\
+Unterschiedliche Strategien zur Migration von Daten setzen unterschiedliche Schwerpunkte um diese ihrem Kontext entsprechend durchzuf"uhren. Die Betrachtung sowohl aus Perspektive der Datenquellen, als auch der umliegenden Anwendungssysteme bildet den Kern dieser Strategien. Unterschiedliche Strategien kommen dabei in verschiedenen Situationen zum Einsatz und besitzen jeweils eigene Vor- und Nachteile. \\
+Dar"uber hinaus stellt die Datenmigration ein hohes Risiko für das durchf"uhrende Unternehmen dar. Um dieses Risiko zu reduzieren, existieren verschiedene Prozessmodelle. Diese versuchen, den Ablauf der Datenmigration in einzelne Phasen zu strukturieren und die jeweiligen Kernaufgaben zu identifizieren. Die Vorgehensweisen beleuchten dabei die technische Prozedur der Datenmigration vom Legacy-System zum neuen System. \\
+Ziel dieser Ausarbeitung ist es, die allgemeine Thematik der Datenmigration zu erl"autern, sowie Strategien, Prozessmodelle und Vorgehensweisen vorzustellen.
+\end{abstract}
+
+%\newpage
+
+%\tableofcontents
+
+%\newpage
+
+%\listoffigures
+%\listoftables
+%\lstlistoflistings
+
+%\newpage
+
+% ===========================================================================================================
+% ======= BEGIN CONTENT =====================================================================================
+% ===========================================================================================================
+
+%\clearpage
+%\pagenumbering{arabic}
+
+\input{10_section_einleitung/10_einleitung.tex}
+\input{20_section_motivation/20_motivation.tex}
+\input{40_section_projekt/40_projekt.tex}
+\input{30_section_kategorien/30_kategorien.tex}
+\input{50_section_vorgehensweisen/50_vorgehensweisen.tex}
+\input{90_section_fazit/90_fazit.tex}
+
+
+
+% ===========================================================================================================
+% ======= END CONTENT =======================================================================================
+% ===========================================================================================================
+
+%\pagenumbering{Roman}
+
+% === BIB ===
+%\newpage
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{alphadin}
+%\bibliographystyle{abbrv}
+%\bibliographystyle{dinat}
+%\addcontentsline{toc}{section}{\bibname}
+
+\bibliography{../bib/mproj}
+\end{document}

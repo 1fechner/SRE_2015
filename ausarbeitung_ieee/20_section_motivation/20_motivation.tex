@@ -1,0 +1,80 @@
+% !TeX spellcheck = de_DE
+\section{Datenmigration im Kontext des Reengineering}
+\label{chapter:motivation}
+%TODO Tobias
+%http://www.dtic.upf.edu/~jbisbal/publications/icsc97.pdf
+%http://www.aifb.kit.edu/images/2/27/2002_14_Stojanovic_A_reverse_engin_1.pdf 	%Kann eventuell verwendet werden, als inspiration f"ur Szenario?
+%http://edepositireland.ie/bitstream/handle/2262/27040/The%20Butterfly%20Methodology%20a%20gateway-free%20approach%20for%20migrating%20legacy%20information%20systems.pdf?sequence=1&isAllowed=
+%http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
+%http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
+%http://www.tara.tcd.ie/bitstream/handle/2262/27050/An?sequence=1
+%http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
+%http://searchsmbstorage.techtarget.com/tip/Data-migration-strategies-and-best-practices
+%https://pure.fundp.ac.be/ws/files/168599/wcre02.pdf
+%http://www.dtic.upf.edu/~jbisbal/publications/datasem97.pdf
+%http://csis.pace.edu/~marchese/CS775/Proj1/legacyinfosys_directions.pdf
+%http://www.tara.tcd.ie/bitstream/handle/2262/27050/An?sequence=1
+%http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=271615 ==> IEEE Xplore Data Migration von Cheong Youn, Cyril S. Ku
+%http://www.oracle.com/technetwork/middleware/oedq/successful-data-migration-wp-1555708.pdf
+
+%\begin{itemize}
+%	\item Warum ist Datenmigration besonders wichtig bei Reengineering?
+%	\item General Scenario
+%	\item Ans"atze grob einf"uhren
+%	\item Migration als Erhaltung von Daten
+%	\item Etwa wichtige Kunden- oder Transaktionsdaten von Banken
+%	\item Daten werden weiterhin verwendet, System m"ussen (technisch oder fachlich) erneuert werden
+%	\item Die bereits vorhandenen Daten werden u.U. anders genutzt oder erfordern Anpassungen
+%	\item Risiken der Datenmigration
+%\end{itemize}
+%\subsection{Reengineering}
+
+Als zentrale Rolle des Reengineering von Software versteht sich eine ''Untersuchung (Reverse Engineering) und "Anderung des Systems, um es in neuer Form zu implementieren'' \citep{chikofsky-1990}. In diesem Zusammenhang versucht das Konzept der Datenmigration eben dieses Ziel im Hinblick auf bereits vorhandene Daten zu erreichen. Gesch"aftskritische Daten bilden einen wichtigen Bestandteil vieler Softwaresysteme. Legacy-Systeme bauen h"aufig auf primitiven Mitteln zur Datenhaltung auf \citep{henrard-2002}.
+\lb 
+Unterschiedliche Ans"atze der Datenmigration finden in spezifischen Kontexten Anwendung. Je nach Anwendungsgebiet der Migration existieren Techniken und Vorgehensweisen f"ur die Datenmigration. Diese unterscheiden sich in den einzusetzenden Hilfsmitteln, Beteiligten sowie Auswirkungen auf andere Systemteile. Direkte Auswirkungen zeigen sich dabei in umliegenden Softwaresystemen, welche auf die Nutzung der Daten angewiesen sind.
+\lb
+Die Planung der Datenmigration stellt meist nur einen Teil des Reengineerings von Softwaresystemen dar. Prozessmodelle zur Durchf"uhrung von Migrationen in Projekten bilden diese Prozesse strukturiert ab. Einf"uhrungsstrategien bilden konzeptionell den Abschluss der Datenmigration. Nach erfolgten Analysen, Tests und entsprechenden Anpassungen in den betroffenen Systemen kann die Einf"uhrung der "Anderungen anhand verschiedener Strategien erfolgen. 
+
+\subsection{Allgemeines}
+
+\textit{''Data migration is the selection, preparation, extraction, transformation and permanent movement of appropriate data that is of the right quality to the right place at the right time and the decommissioning of legacy data stores''} \citep[S.~7]{morris-2012}
+\lb
+Eine Strukturierung von Daten au"serhalb von Softwaresystemen bildet h"aufig den Kern wichtiger Gesch"aftsprozesse. Auf der zugrundeliegenden Dynamik externer Datenquellen skalieren die Aufgaben unterschiedlichster Softwaresysteme. Durch das Vorhalten von Daten in externen Quellen k"onnen Informationen zur Laufzeit der Systeme dynamisch nachgeladen und persistiert werden.
+\lb
+Das Reengineering von Software beinhaltet meist nicht alleine eine Restrukturierung von Softwaresystemen. Zugrundeliegende Daten sind auf die Nutzung und den speziellen Kontext des Systems ausgelegt. Hohe Anforderungen an Stabilit"at und Verl"asslichkeit machen diese Daten zu einer zentralen Komponente von Legacy-Systemen.
+\lb
+Anders als eine Portierung von Software oder Systemen beruft sich die Datenmigration somit auf das Verschieben und Restrukturieren von Daten in neuen Datenquellen.
+\lb
+Aus ihrer zentralen Rolle innerhalb von Legacy-Systemen leitet sich ein hoher Gesch"aftswert der Daten ab. Beispiele finden sich etwa in Form von Daten der Kunden einer Bank, dem Katalog von Warenh"ausern oder einer Verwaltung von St"uckg"utern im Betrieb von Containerterminals. 
+\lb
+Datenmigration erfasst vorrangig Daten im gr"oberen Sinn. Dies reicht von Datenbanken, Gesch"aftsdaten in Excel-Tabellen bis hin zu eigenen Datenformaten. Ziel der Migration ist vorrangig das Erhalten dieser Daten. Der Gesch"aftswert dieser Daten steht als zentrales Argument f"ur die Modernisierung von Datenhaltung und -management. Neben der physischen Migration von Daten, der Aktualisierung von Systemsoftware und letztendlich der Modernisierung der Modellierung der Daten reichen zahlreiche Ans"atze der Datenmigration. Die Integration der Migration erfordert eine Verzahnung mit den Prozessen des Reengineering und der kontinuierlichen Nutzung von Legacy-Systemen.
+
+\subsection{Exemplarisches Szenario}
+
+\label{ref:scenario}
+
+Um die Kernaufgaben und den Kontext der Datenmigration zu erl"autern, l"asst sich ein exemplarischer Anwendungsfall f"ur die Datenmigration im Kontext von Legacy-Systemen anf"uhren.
+\lb
+Kontext:
+Ein Versandhaus setzt seit Jahren ein in COBOL verfasstes Legacy-System sowie ein System zum Datenmanagement auf Basis von ISAM\footnote{\textit{Indexed Sequential Access Method}, eine Methode zum Indizieren von Daten f"ur den effizienten Zugriff. Urspr"unglich entwickelt vom IBM.} ein. Die Aufgabe des Systems ist die Verwaltung von Lagerbest"anden und Kundendaten. Die Datenmodellierung orientiert sich an etablierten Gesch"aftsprozessen. 
+\lb
+Im Zuge einer Evolution des Unternehmens soll das Softwaresystem neu entwickelt werden. Um bestehende Gesch"aftsprozesse korrekt abzubilden, erfolgt eine umfassende Analyse. Auf Basis dieser Daten soll das neue System implementiert werden. Da sich das neue Anwendungssystem "ahnlich dem bestehenden System verhalten soll, m"ussen bereits vorhandene Kunden- und Bestandsdaten "ubertragen werden. Zu diesem Zweck ist die vorhandene Datenhaltung an das neue System anzupassen. Neue technische und konzeptionelle "Uberlegungen erfordern unter Umst"anden neue Denkweisen bei der Nutzung von vorhandenen Kundendaten. Die Datenmigration schlie"st in diesem Kontext die Konvertierung und die "Ubertragung vorhandener Daten auf das neue System ein. Die Nutzung des neuen Systems kann so mit den migrierten Daten erfolgen.
+
+%\newpage
+
+\subsection{Risiken der Datenmigration}
+
+Um die Relevanz der Datenmigration weiter hervorzuheben, erl"autert \citep{morris-2012} Probleme und Risiken, die im Zuge der Datenmigration h"aufig auftreten. Im Jahr 2011 lagen etwa 40\% der Projekte zur Datenmigration au"serhalb von Zeit und Kostenplan, oder schlugen gesamtheitlich fehl \citep{howard-2011}. Zu den auftretenden Problemen geh"oren unter anderen:
+
+\begin{itemize}
+	\item \textbf{Technologiezentrierung} \\
+			Oft wird die Datenmigration lediglich als technisches Problem verstanden \citep[S.~9]{morris-2012} und dementsprechend ohne fachliche Betrachtung vorhandener Daten durchgef"uhrt.
+	\item \textbf{Mangel an Spezialisten} \\
+			Die Analyse vorhandener Daten und die folgende Migration erfordert unter Umst"anden Spezialisten oder Analysten f"ur eine diffundierte Analyse. Eine Synthese aus fachlichen und technischen Problematiken kann im Kontext der Datenmigration eine saubere Trennung zwischen gesch"aftlichen und technischen Problemen erschweren.
+	\item \textbf{Untersch"atzen der Datenmigration} \\
+			Die Datenmigration wird h"aufig untersch"atzt. Im Kontext von Legacy-Systemen ist die tats"achliche Tiefe durchzuf"uhrender Anpassungen potentiell unbekannt. Das Erfassen der dazu notwendigen T"atigkeiten kann so leicht ein tiefes Eindringen in vorhandene System erfordern.
+%	\item \textbf{Problemzuweisung} \\
+%			Die Beziehungen zwischen (Migrations-)Projekt und allt"aglichem Gesch"aft sind selten eindeutig. Unkontrollierte Zuweisungen der Problematiken im Zuge der Migration zu jeweils einem der Beteiligen k"onnen unbeabsichtigt zur Rekursion bei der Zuweisung einzelner Problembereiche f"uhren \citep[S.~9]{morris-2012}.
+\end{itemize}
+
+Im Hinblick auf die genannten Problematiken wird die Wichtigkeit der koordinierten Durchf"uhrung der Datenmigration deutlich. Hinweise f"ur die erfolgreiche Durchf"uhrung von Projekten zur Datenmigration finden sich etwa in \citep{sas-2009}, \citep{oracle-2011}. Unterschiedliche Strategien, Vorgehensmodelle und Einf"uhrungsstrategien versuchen dabei, die Durchf"uhrung entsprechend zu strukturieren. 
